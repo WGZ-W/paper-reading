@@ -36,6 +36,45 @@ data-driven inductive bias for various scenarios, rather than designing it manua
 
 
 ## Representation-Based Approach
+The approaches that create and exploit the strengths of representations for 
+continual learning into this category.
+In addition to an earlier work that acquires sparse 
+representations from meta-training, recent work has attempted
+to incorporate the advantages of self-supervised learning,
+and large-scale pre-training to improve the representations
+in initialization and in continual learning.
+
+![representation-based](../images/continual-learning/representation-based.png)
+
+- The first is to implement **self-supervised learning** (basi
+cally with contrastive loss) for continual learning.
+- The second is to use **pre-training for downstream
+continual learning**. Several empirical studies suggest that
+downstream continual learning clearly benefits from the use
+of pre-training, which brings not only strong knowledge
+transfer but also robustness to catastrophic forgetting.
+- The third is **continual pre-training** (CPT) or continual
+meta-training. As the huge amount of data required for
+pre-training is typically collected in an incremental manner,
+performing upstream continual learning to improve down
+stream performance is particularly important.
 
 
 ## Architecture-Based Approach
+Constructing task-specific parameters can explicitly resolve
+the problem that shared set of parameters.Previous work generally separates this category into param
+eter isolation and dynamic architecture, depending on whether
+the network architecture is fixed or not.
+
+![architecture-based](../images/continual-learning/architecture-based.png)
+
+- Parameter allocation features an isolated parameter sub
+space dedicated to each task throughout the network, where
+the architecture can be fixed or dynamic in size.
+- Model decomposition separates a model explicitly into
+task-sharing and task-specific components, where the task
+specific components are often expandable.
+- Modular network leverages parallel sub-networks or
+sub-modules to learn incremental tasks in a differentiated
+manner, without pre-defined task-sharing or task-specific
+components.

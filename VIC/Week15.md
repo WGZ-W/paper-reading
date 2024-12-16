@@ -19,4 +19,4 @@ DRNet try to decompose the task to two stages:
 DRNet has three modules, :
 1. image representation module, which maps two input images to feature represetations.
 2. Using the feature represetation to generate density maps, and extract the head discriptors from density maps.
-3. Then the problem could be consider to a assignment problem and this paper choose Optimal Transport theory to reason this assignment problem.  
+3. Then the problem could be consider to a assignment problem and this paper choose Optimal Transport theory to solve this assignment problem.  

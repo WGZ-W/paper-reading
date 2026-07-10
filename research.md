@@ -2,6 +2,10 @@
 
 # Research
 
+## 主要问题
+> 主动推理与记忆压缩问题
+- 如何高效利用历史信息？（记忆压缩）
+
 ## UAV VLN（Visual Language Navigation）
 输入：当前帧，历史帧，语言指令，历史动作？
 

@@ -2,6 +2,9 @@
 
 # VLN
 
+
+- **GA-VLN: Geometry-Aware BEV Representation for Efficient Vision-Language Navigation** & & **CVPR 2026** & [(arxiv)](https://arxiv.org/abs/2605.22036)
+
 - **NaVid: Video-based VLM Plans the Next Step for Vision-and-Language Navigation**. Jiazhao Zhang, He Wang. **RSS 2024**. [(PDF)]() [(arxiv)](https://arxiv.org/abs/2402.15852)
   - 历史信息：使用所有的历史帧作为视频帧，提取指令可知和不可知两种 token ，输入到 LLM 
 

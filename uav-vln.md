@@ -120,6 +120,8 @@
 ## World Model (With)
 
 - **WorldFly: A World-Model-Based Vision-Language-Action Model for UAV Navigation** & [Arxiv](https://arxiv.org/abs/2606.06147)
+  - 基于 OpenFly 工具链生成的数据集
+  - 使用 Flow Matching 的生成范式生成未来潜在特征
 
 - **AirDreamer: Generalist Drone Navigation with World Models** & [Arxiv](https://arxiv.org/abs/2606.03252)
 

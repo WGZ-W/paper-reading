@@ -1,40 +1,56 @@
 
 # UAV-VLN
 
+- **AerialVLN: Vision-and-Language Navigation for UAVs** & Shubo Liu, Yuankai Qi. **ICCV 2023** & [(arxiv)](https://arxiv.org/abs/2308.06735)
+  - **提出新任务 AerialVLN**：首个面向无人机的、室外城市级视觉-语言导航任务。
+  - **开发高保真模拟器**：基于 Unreal Engine 4 和 AirSim，
+  - **构建大规模数据集**：
+  - **提出基线模型**：评估了随机、动作采样、LingUNet、Seq2Seq、CMA，并改进提出 Look-ahead Guidance (LAG) 策略。
+
+- **CityNav: A Large-Scale Dataset for Real-World Aerial Navigation** & Jungdae Lee, Nakamasa Inoue & **ICCV 2025** & [(arxiv)](https://arxiv.org/abs/2406.14240)（不怎么熟悉）
+  - **CityNav数据集**：
+  - 地理语义地图（GSM）表示
+
+- **Towards Realistic UAV Vision-Language Navigation: Platform, Benchmark, and Methodology（OpenUAV）（TravelUAV）** & Xiangyu Wang, Si Liu & **ICLR 2025** & [(arxiv)](https://arxiv.org/abs/2410.07087)
+  - OpenUAV platform （基于 UE4 + AirSim；6自由度（DoF）连续轨迹）
+  - 数据集：目标导向的 UAV VLN 数据集（TravelUAV）
+  - 基准：UAV-Need-Help
+
+- **OpenFly: A comprehensive platform for aerial vision-language navigation** & Yunpeng Gao, Bin Zhao. **ICLR 2026** & [(arxiv)](https://arxiv.org/abs/2502.18041)
+  - **OpenFly平台**：
+    - 集成 4 大渲染引擎/技术
+    - 全自动数据生成工具链
+  - **大规模数据集**：
+  - **OpenFly-Agent**：基于OpenVLA，引入**关键帧选择**（根据动作突变 + 地标定位模块）和**视觉令牌合并**（减少冗余）。）
 
 - **LookasideVLN: Direction-Aware Aerial Vision-and-Language Navigation** & **CVPR 2026** & [Arxiv](https://arxiv.org/abs/2604.17190)
+
+
+- **RecoverFly: A Failure-Aware Reinforcement Learning Post-Training Framework for Aerial Vision-Language Navigation** & Boxiong Wang, Daxin Tian & [(arxiv)](https://arxiv.org/abs/2608.09467)
+  - 提出**首个面向端到端无人机 VLA 的失败感知 RL 后训练框架**，统一处理动作优化、失败利用、长尾适应和策略稳定问题。
+  - 设计**动态失败重播**，有效利用稀疏失败反馈，提升样本效率。
+  - 引入**两阶段场景课程 + 参考策略 KL 正则化**，改善稀有场景学习并防止策略漂移。
+  - 在 TravelUAV 基准上验证了方法的**有效性、鲁棒性和泛化能力**，显著超越现有方法。
+
+
+
 
 - **SkyVLN: Vision-and-Language Navigation and NMPC Control for UAVs in Urban Environments** & **IROS 2025** & [arxiv](https://arxiv.org/abs/2507.06564)
 
 - **Towards Autonomous UAV Visual Object Search in City Space: Benchmark and Agentic Methodology** & & **AAAI 2026** & [Web](https://ojs.aaai.org/index.php/AAAI/article/view/38898)
 
 
-
-
-
-- **Memory-Augmented Scene Understanding and Exploration for Open-World Aerial Object-Goal Navigation**.**CVPR 2026**. 
+- **Memory-Augmented Scene Understanding and Exploration for Open-World Aerial Object-Goal Navigation** & **CVPR 2026**. 
   - 历史信息：八叉树
   - UAV-ON benchmark
 
 
-- **AerialVLN: Vision-and-Language Navigation for UAVs**. Shubo Liu, Yuankai Qi. **ICCV 2023** [(PDF)]() [(arxiv)](https://arxiv.org/abs/2308.06735)
-  - 使用 CMA （Cross Modality Attention）模型
-  - AerialVLN benchmark；RGB-D 图像；指令；
-
-- **UAV-ON: A Benchmark for Open-World Object Goal Navigation with Aerial Agents**. Jianqiang Xiao, Xiang Deng. **ACM MM Dataset Track 2025**. [(PDF)]() [(arxiv)](https://arxiv.org/abs/2508.00288)
+- **UAV-ON: A Benchmark for Open-World Object Goal Navigation with Aerial Agents** & Jianqiang Xiao, Xiang Deng & **ACM MM Dataset Track 2025** & [(arxiv)](https://arxiv.org/abs/2508.00288)
   - UAV-ON benchmark
 
-- **Towards Realistic UAV Vision-Language Navigation: Platform, Benchmark, and Methodology**. Xiangyu Wang, Si Liu. **ICLR 2025**. [(arxiv)](https://arxiv.org/abs/2410.07087)
-  - OpenUAV platform
 
-- **CityNav: A Large-Scale Dataset for Real-World Aerial Navigation** & Jungdae Lee, Nakamasa Inoue & **ICCV2025** & [(PDF)]() [(arxiv)](https://arxiv.org/abs/2406.14240)
 
-- **OpenFly: A comprehensive platform for aerial vision-language navigation**. Yunpeng Gao, Bin Zhao. **ICLR 2026**. [(PDF)]() [(arxiv)](https://arxiv.org/abs/2502.18041)
-  - 使用 VLA (Vision Language Action)
-  - 历史信息：选取两个关键帧
-  - OpenFly benchmark ；RGB 图像；指令；
-
-- **LongFly: Long-Horizon UAV Vision-and-Language Navigation with Spatiotemporal Context Integration.** Wen Jiang, Xiangyang Ji. [(PDF)]() [(arxiv)](https://arxiv.org/abs/2512.22010)
+- **LongFly: Long-Horizon UAV Vision-and-Language Navigation with Spatiotemporal Context Integration.** Wen Jiang, Xiangyang Ji & [(arxiv)](https://arxiv.org/abs/2512.22010)
   - 历史信息：使用槽压缩（固定存储）
   - 
 

@@ -1,9 +1,14 @@
 ## Object Navigation
 
 
+- **Towards Realistic UAV Vision-Language Navigation: Platform, Benchmark, and Methodology（OpenUAV）（TravelUAV）** & Xiangyu Wang, Si Liu & **ICLR 2025** & [(arxiv)](https://arxiv.org/abs/2410.07087)
+  - OpenUAV platform （基于 UE4 + AirSim；6自由度（DoF）连续轨迹）
+  - 数据集：目标导向的 UAV VLN 数据集（TravelUAV）
+  - 基准：UAV-Need-Help
+
 
 ## Dialogue
-- **Parse, Search, and Confirmation: Training-Free Aerial Vision-and-Dialog Navigation with Chain-of-Thought Reasoning and Structured Spatial Memory**. **CVPR 2026**.
+- **Parse, Search, and Confirmation: Training-Free Aerial Vision-and-Dialog Navigation with Chain-of-Thought Reasoning and Structured Spatial Memory** & **CVPR 2026** & [(PDF)](https://openaccess.thecvf.com/content/CVPR2026/papers/Qi_Parse_Search_and_Confirmation_Training-Free_Aerial_Vision-and-Dialog_Navigation_with_Chain-of-Thought_CVPR_2026_paper.pdf)
   - 历史信息：结构化空间记忆（Structured Spatial Memory, SSM）
   - ANDH and ANDH-Full datasets
   - Training Free

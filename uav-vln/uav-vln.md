@@ -11,10 +11,6 @@
   - **CityNav数据集**：
   - 地理语义地图（GSM）表示
 
-- **Towards Realistic UAV Vision-Language Navigation: Platform, Benchmark, and Methodology（OpenUAV）（TravelUAV）** & Xiangyu Wang, Si Liu & **ICLR 2025** & [(arxiv)](https://arxiv.org/abs/2410.07087)
-  - OpenUAV platform （基于 UE4 + AirSim；6自由度（DoF）连续轨迹）
-  - 数据集：目标导向的 UAV VLN 数据集（TravelUAV）
-  - 基准：UAV-Need-Help
 
 - **OpenFly: A comprehensive platform for aerial vision-language navigation** & Yunpeng Gao, Bin Zhao. **ICLR 2026** & [(arxiv)](https://arxiv.org/abs/2502.18041)
   - **OpenFly平台**：
@@ -24,6 +20,10 @@
   - **OpenFly-Agent**：基于OpenVLA，引入**关键帧选择**（根据动作突变 + 地标定位模块）和**视觉令牌合并**（减少冗余）。）
 
 - **LookasideVLN: Direction-Aware Aerial Vision-and-Language Navigation** & **CVPR 2026** & [Arxiv](https://arxiv.org/abs/2604.17190)
+
+
+- **AirForesight: Current-to-Future Spatial Map Imagination with Cross-Space Planning Consistency for UAV-VLN** & Yutong Liu, Xiaojie Li, Mingzhu Xu, Jianlong Wu & **ACM Multimedia 2026** & [(arxiv)](https://arxiv.org/abs/2608.12835)
+  - 之前的方法直接将视觉语言输入映射到动作。
 
 
 - **RecoverFly: A Failure-Aware Reinforcement Learning Post-Training Framework for Aerial Vision-Language Navigation** & Boxiong Wang, Daxin Tian & [(arxiv)](https://arxiv.org/abs/2608.09467)

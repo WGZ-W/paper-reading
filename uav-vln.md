@@ -1,32 +1,28 @@
-
-
-# UAV-VLN
-
-|年份|名字|会议/期刊|作者|简介|
-|:-:|:-:|:-:|:-:|:-:|
-|2023|[AerialVLN](https://arxiv.org/abs/2308.06735)|ICCV 2023|Shubo Liu；Yuankai Qi|首个面向无人机的、室外城市级视觉-语言导航任务|
-||[CityNav](https://arxiv.org/abs/2406.14240)|ICCV 2025||（不怎么熟悉）|
-||[OpenFly](https://arxiv.org/abs/2502.18041)|ICLR 2026|||
-||[LookasideVLN](https://arxiv.org/abs/2604.17190)|CVPR 2026|||
-||[OctMem-Agent](https://cvpr.thecvf.com/virtual/2026/oral/40327)|CVPR 2026|||
-||[UAV-ON](https://arxiv.org/abs/2508.00288)|ACMMM Dataset Track 2025|||
-||[APEX](https://arxiv.org/abs/2602.00551)|CVPR 2026|||
-||[OpenUAV（TravelUAV）](https://arxiv.org/abs/2410.07087)|ICLR 2025|Xiangyu Wang, Si Liu |目标导向的数据集（TravelUAV）；基准：UAV-Need-Help|
-||[AerialVLA](https://ojs.aaai.org/index.php/AAAI/article/view/38878)|AAAI 2026|Chen, J., Li, H.|优化提问时机（PNaQ）; 时空融合历史信息（HSTF）(STA), 根据坐标拼接全局地图; ANDH and ANDH-Full datasets|
-
-
-
-
-
-
-
-
-
-
 ## UAV-VLN
 
 
-- **CityNav: A Large-Scale Dataset for Real-World Aerial Navigation** & Jungdae Lee, Nakamasa Inoue & **** & [(arxiv)]
+- **AerialVLA: A Vision-Language-Action Model for Aerial Navigation with Online Dialogue** & Jinyu Chen, Si Liu & **AAAI 2026** & [AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/38878)
+
+
+- **AerialVLN: Vision-and-Language Navigation for UAVs** & Shubo Liu,  Qi Wu & **ICCV 2023** & [CVF](https://openaccess.thecvf.com/content/ICCV2023/html/Liu_AerialVLN_Vision-and-Language_Navigation_for_UAVs_ICCV_2023_paper.html)
+
+
+- **APEX: A Decoupled Memory-based Explorer for Asynchronous Aerial Object Goal Navigation** & Daoxuan Zhang,  Shuo Yang & **CVPR 2026** & [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_APEX_A_Decoupled_Memory-based_Explorer_for_Asynchronous_Aerial_Object_Goal_CVPR_2026_paper.html)
+
+
+- **(OctMem-Agent) Memory-Augmented Scene Understanding and Exploration for Open-World Aerial Object-Goal Navigation** & Jiacong Zhou,  Jun Yu & **CVPR 2026** & [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Zhou_Memory-Augmented_Scene_Understanding_and_Exploration_for_Open-World_Aerial_Object-Goal_Navigation_CVPR_2026_paper.html)
+
+
+- **(OpenUAV or TravelUAV) Towards Realistic UAV Vision-Language Navigation: Platform, Benchmark, and Methodology** & Xiangyu Wang,  Si Liu & **ICLR 2025** & [Arxiv](https://arxiv.org/abs/2410.07087)
+
+
+- **(PSC-AVDN) Parse, Search, and Confirmation: Training-Free Aerial Vision-and-Dialog Navigation with Chain-of-Thought Reasoning and Structured Spatial Memory** & Yu Qi,  Meng Wang & **CVPR 2026** & [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Qi_Parse_Search_and_Confirmation_Training-Free_Aerial_Vision-and-Dialog_Navigation_with_Chain-of-Thought_CVPR_2026_paper.html)
+  - 历史信息：结构化空间记忆（Structured Spatial Memory, SSM）
+  - ANDH and ANDH-Full datasets
+  - Training Free
+
+
+- **CityNav: A Large-Scale Dataset for Real-World Aerial Navigation** & Jungdae Lee,  Nakamasa Inoue & **ICCV 2025** & [CVF](https://openaccess.thecvf.com/content/ICCV2025/html/Lee_CityNav_A_Large-Scale_Dataset_for_Real-World_Aerial_Navigation_ICCV_2025_paper.html)
   - **CityNav数据集**：
   - 地理语义地图（GSM）表示
 
@@ -38,7 +34,7 @@
   - **大规模数据集**：
   - **OpenFly-Agent**：基于OpenVLA，引入**关键帧选择**（根据动作突变 + 地标定位模块）和**视觉令牌合并**（减少冗余）。）
 
-- **LookasideVLN: Direction-Aware Aerial Vision-and-Language Navigation** & **CVPR 2026** & [Arxiv](https://arxiv.org/abs/2604.17190)
+- **LookasideVLN: Direction-Aware Aerial Vision-and-Language Navigation** & Yuwei Ning,  Guanbin Li & **CVPR 2026** & [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Ning_LookasideVLN_Direction-Aware_Aerial_Vision-and-Language_Navigation_CVPR_2026_paper.html)
 
 
 - **AirForesight: Current-to-Future Spatial Map Imagination with Cross-Space Planning Consistency for UAV-VLN** & Yutong Liu, Xiaojie Li, Mingzhu Xu, Jianlong Wu & **ACM Multimedia 2026** & [(arxiv)](https://arxiv.org/abs/2608.12835)
@@ -54,17 +50,15 @@
 
 
 
-- **SkyVLN: Vision-and-Language Navigation and NMPC Control for UAVs in Urban Environments** & **IROS 2025** & [arxiv](https://arxiv.org/abs/2507.06564)
 
-- **Towards Autonomous UAV Visual Object Search in City Space: Benchmark and Agentic Methodology** & & **AAAI 2026** & [Web](https://ojs.aaai.org/index.php/AAAI/article/view/38898)
-
-
-- **Memory-Augmented Scene Understanding and Exploration for Open-World Aerial Object-Goal Navigation** & **CVPR 2026**. 
-  - 历史信息：八叉树
-  - UAV-ON benchmark
+- **SkyVLN: Vision-and-Language Navigation and NMPC Control for UAVs in Urban Environments** & Tianshun Li,  Xinhu Zheng & **IROS 2025** & [Arxiv](https://arxiv.org/abs/2507.06564)
 
 
-- **UAV-ON: A Benchmark for Open-World Object Goal Navigation with Aerial Agents** & Jianqiang Xiao, Xiang Deng & **ACM MM Dataset Track 2025** & [(arxiv)](https://arxiv.org/abs/2508.00288)
+
+- **Towards Autonomous UAV Visual Object Search in City Space: Benchmark and Agentic Methodology** & Yatai Ji, Quanjun Yin & **AAAI 2026** & [AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/38898)
+
+
+- **UAV-ON: A Benchmark for Open-World Object Goal Navigation with Aerial Agents** & Jianqiang Xiao, Xiang Deng & **ACM MM Dataset Track 2025** & [(Arxiv)](https://arxiv.org/abs/2508.00288)
   - UAV-ON benchmark
 
 
@@ -73,15 +67,15 @@
   - 历史信息：使用槽压缩（固定存储）
   - 
 
-- **NavAgent: Multi-scale Urban Street View Fusion For UAV Embodied Vision-and-Language Navigation** & & [(arxiv)](https://arxiv.org/abs/2411.08579) &
+- **NavAgent: Multi-scale Urban Street View Fusion For UAV Embodied Vision-and-Language Navigation** & Youzhi Liu,  Kun Fu & **Arxiv** & [Arxiv](https://arxiv.org/abs/2411.08579)
 
-- **CityNavAgent: Aerial Vision-and-Language Navigation with Hierarchical Semantic Planning and Global Memory** &&[(arxiv)](https://arxiv.org/abs/2505.05622)&
+- **CityNavAgent: Aerial Vision-and-Language Navigation with Hierarchical Semantic Planning and Global Memory** & Weichen Zhang,  Yong Li & **ACL 2025** & [Arxiv](https://arxiv.org/abs/2505.05622)
 
 - **Exploring Spatial Representation to Enhance LLM Reasoning in Aerial Vision-Language Navigation** & & [(arxiv)](https://arxiv.org/abs/2410.08500v3)
 
-- **Aerial Vision-and-Language Navigation with Grid-based View Selection and Map Construction** & & [(arxiv)](https://arxiv.org/abs/2503.11091)
+- **Aerial Vision-and-Language Navigation with Grid-based View Selection and Map Construction** & Ganlong Zhao,  Yizhou Yu & **Arxiv** & [Arxiv](https://arxiv.org/abs/2503.11091)
 
-- **GeoNav: Empowering MLLMs with dual-scale geospatial reasoning for language-goal aerial navigation** & & **Pattern Recognition (2026)** & [(arxiv)](https://arxiv.org/abs/2504.09587)
+- **GeoNav: Empowering MLLMs with dual-scale geospatial reasoning for language-goal aerial navigation** & Haotian Xu,  Quanjun Yin & **Pattern Recognition (2026)** & [Arxiv](https://arxiv.org/abs/2504.09587)
   - CityNav
 
 
@@ -139,11 +133,6 @@
 
 
 ## Dialogue
-- **Parse, Search, and Confirmation: Training-Free Aerial Vision-and-Dialog Navigation with Chain-of-Thought Reasoning and Structured Spatial Memory** & **CVPR 2026** & [(PDF)](https://openaccess.thecvf.com/content/CVPR2026/papers/Qi_Parse_Search_and_Confirmation_Training-Free_Aerial_Vision-and-Dialog_Navigation_with_Chain-of-Thought_CVPR_2026_paper.pdf)
-  - 历史信息：结构化空间记忆（Structured Spatial Memory, SSM）
-  - ANDH and ANDH-Full datasets
-  - Training Free
-
 
 
 

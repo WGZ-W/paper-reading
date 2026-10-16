@@ -3,6 +3,11 @@
 # Embodied
 
 
+- **Learning Human-to-Humanoid Real-Time Whole-Body Teleoperation** & Tairan He,  Guanya Shi & **IROS 2024 (Oral Presentation)** & [Arxiv](https://arxiv.org/abs/2403.04436)
+
+- **ASAP: Aligning Simulation and Real-World Physics for Learning Agile Humanoid Whole-Body Skills** & Tairan He,  Guanya Shi & **RSS 2025** & [Arxiv](https://arxiv.org/abs/2502.01143)
+
+
 - **VIRAL: Visual Sim-to-Real at Scale for Humanoid Loco-Manipulation** & Tairan He,  Yuke Zhu & **CVPR 2026** & [Arxiv](https://arxiv.org/abs/2511.15200)
 
 - **OmniH2O: Universal and Dexterous Human-to-Humanoid Whole-Body Teleoperation and Learning** & Tairan He,  Guanya Shi & **CoRL 2024** & [Arxiv](https://arxiv.org/abs/2406.08858)

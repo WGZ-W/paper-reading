@@ -3,6 +3,7 @@
 - **AutoFly: Vision-Language-Action Model for UAV Autonomous Navigation in the Wild** & **ICLR 2026** & [arxiv](https://arxiv.org/abs/2602.09657)
 
 
+
 - **AerialVLA: A Vision-Language-Action Model for Aerial Navigation with Online Dialogue** & Jinyu Chen, Si Liu & **AAAI 2026** & [AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/38878)
 
 
@@ -36,6 +37,11 @@
   - **大规模数据集**：
   - **OpenFly-Agent**：基于OpenVLA，引入**关键帧选择**（根据动作突变 + 地标定位模块）和**视觉令牌合并**（减少冗余）。）
 
+
+- **Aerial Vision-Language Navigation with a Unified Framework for Spatial, Temporal and Embodied Reasoning** & **TCSVT 2026** & [Arxiv](https://arxiv.org/abs/2512.08639)
+  - AerialVLN-S and OpenFly benchmark 
+
+
 - **LookasideVLN: Direction-Aware Aerial Vision-and-Language Navigation** & Yuwei Ning,  Guanbin Li & **CVPR 2026** & [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Ning_LookasideVLN_Direction-Aware_Aerial_Vision-and-Language_Navigation_CVPR_2026_paper.html)
 
 
@@ -48,8 +54,6 @@
   - 设计**动态失败重播**，有效利用稀疏失败反馈，提升样本效率。
   - 引入**两阶段场景课程 + 参考策略 KL 正则化**，改善稀有场景学习并防止策略漂移。
   - 在 TravelUAV 基准上验证了方法的**有效性、鲁棒性和泛化能力**，显著超越现有方法。
-
-
 
 
 
@@ -75,11 +79,12 @@
 
 - **Exploring Spatial Representation to Enhance LLM Reasoning in Aerial Vision-Language Navigation** & & [(arxiv)](https://arxiv.org/abs/2410.08500v3)
 
+
 - **Aerial Vision-and-Language Navigation with Grid-based View Selection and Map Construction** & Ganlong Zhao,  Yizhou Yu & **Arxiv** & [Arxiv](https://arxiv.org/abs/2503.11091)
+
 
 - **GeoNav: Empowering MLLMs with dual-scale geospatial reasoning for language-goal aerial navigation** & Haotian Xu,  Quanjun Yin & **Pattern Recognition (2026)** & [Arxiv](https://arxiv.org/abs/2504.09587)
   - CityNav
-
 
 
 - **UAV Visual Navigation in the Large-Scale Outdoor Environment: A Semantic Map-Based Cognitive Escape Reinforcement Learning Method** & [Web](https://ieeexplore.ieee.org/document/10847926)
@@ -97,11 +102,15 @@
 
 - **OpenVLN: Open-world Aerial Vision-Language Navigation** & [arxiv](https://arxiv.org/abs/2511.06182)
 
+
 - **ASMA: An Adaptive Safety Margin Algorithm for Vision-Language Drone Navigation via Scene-Aware Control Barrier Functions** & **RAL 2025** & [arxiv](https://arxiv.org/abs/2409.10283)
+
 
 - **AirNav: A Large-Scale UAV Vision-and-Language Navigation Dataset with Natural and Diverse Instructions** & [arxiv](https://arxiv.org/abs/2601.03707)
 
+
 - **AirUniNav: Unified Vision-Language Navigation for UAVs in Indoor and Outdoor Scenes** & [Web](https://forhumble.github.io/AirUni/)
+
 
 
 
@@ -121,7 +130,6 @@
 - **AirHunt: Bridging VLM Semantics and Continuous Planning for Efficient Aerial Object Navigation** & [Arxiv](https://arxiv.org/abs/2601.12742)
 
 
-- **Aerial Vision-Language Navigation with a Unified Framework for Spatial, Temporal and Embodied Reasoning** & **TCSVT 2026** & [Arxiv](https://arxiv.org/abs/2512.08639)
 
 - **How Far Are Large Multimodal Models from Human-Level Spatial Action? A Benchmark for Goal-Oriented Embodied Navigation in Urban Airspace** & [Arxiv](https://arxiv.org/abs/2604.07973)
 

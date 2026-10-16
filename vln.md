@@ -10,8 +10,11 @@
 
 
 - **Vision-and-Dialog Navigation** & Jesse Thomason, Michael Murray, Maya Cakmak, Luke Zettlemoyer & **Conference on Robot Learning (CoRL) 2019** & [(Arxiv)](https://arxiv.org/abs/1907.04957)
+  - 实验中的问答是预先收集好的。
+  - 模型本身不会决定何时提问，也不会实时与引导者协商。
 
 - **NaVid: Video-based VLM Plans the Next Step for Vision-and-Language Navigation** & Jiazhao Zhang,  He Wang & **RSS 2024** & [Arxiv](https://arxiv.org/abs/2402.15852)
+  - NaVid 让机器人根据语言指令和单目 RGB 视频，直接预测下一步该前进多远、转多少度或停止。
 
 
 - **NaVILA: Legged Robot Vision-Language-Action Model for Navigation** & An-Chieh Cheng,  Xiaolong Wang & **RSS 2025** & [Arxiv](https://arxiv.org/abs/2412.04453)
@@ -29,7 +32,7 @@
 - **(CommNav) Robots Ask the Way: Communication-Enabled Social Navigation** & Valentino Sacco,  Fabio Galasso & **IROS 2026** & [Arxiv](https://arxiv.org/abs/2607.01044)
 
 
-https://icml.cc/virtual/2026/poster/61610
+- **Joint Navigation and Manipulation Planning with 3D Interaction Chains** & Keming Zhang， Shuqiang Jiang & **ICML 2026** & [ICML](https://icml.cc/virtual/2026/poster/61610)
 
 
 - **(HSGM) Bridging the 2D-3D Gap: A Hierarchical Semantic-Geometric Map for Vision Language Navigation** & Kailing Li,  Liang He & **CVPR 2026** & [CVF](https://openaccess.thecvf.com/content/CVPR2026/html/Li_Bridging_the_2D-3D_Gap_A_Hierarchical_Semantic-Geometric_Map_for_Vision_CVPR_2026_paper.html)

@@ -1,5 +1,7 @@
 ## UAV-VLN
 
+- **AutoFly: Vision-Language-Action Model for UAV Autonomous Navigation in the Wild** & **ICLR 2026** & [arxiv](https://arxiv.org/abs/2602.09657)
+
 
 - **AerialVLA: A Vision-Language-Action Model for Aerial Navigation with Online Dialogue** & Jinyu Chen, Si Liu & **AAAI 2026** & [AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/38878)
 
@@ -101,7 +103,7 @@
 
 - **AirUniNav: Unified Vision-Language Navigation for UAVs in Indoor and Outdoor Scenes** & [Web](https://forhumble.github.io/AirUni/)
 
-- **AutoFly: Vision-Language-Action Model for UAV Autonomous Navigation in the Wild** & **ICLR 2026** & [arxiv](https://arxiv.org/abs/2602.09657)
+
 
 - **Fly0: Decoupling Semantic Grounding from Geometric Planning for Zero-Shot Aerial Navigation** & [arxiv](https://arxiv.org/abs/2602.15875)
 
@@ -129,13 +131,7 @@
 ## Object Navigation
 
 
-
-
-
 ## Dialogue
-
-
-
 - **Learning Fine-Grained Alignment for Aerial Vision-Dialog Navigation** & & **AAAI 2025** & [HTML](https://ojs.aaai.org/index.php/AAAI/article/view/32758)
 
 

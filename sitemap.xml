@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://wgz-w.github.io/paper-reading/</loc>
+         <lastmod>2026-11-03</lastmod>
+    </url>
+    <url>
+         <loc>https://wgz-w.github.io/paper-reading/reading-list/</loc>
+         <lastmod>2026-11-03</lastmod>
+    </url>
+    <url>
+         <loc>https://wgz-w.github.io/paper-reading/papers/</loc>
+         <lastmod>2026-11-03</lastmod>
+    </url>
+    <url>
+         <loc>https://wgz-w.github.io/paper-reading/papers/2023-aerialvln/</loc>
+         <lastmod>2026-11-03</lastmod>
+    </url>
+    <url>
+         <loc>https://wgz-w.github.io/paper-reading/papers/2026-openfly/</loc>
+         <lastmod>2026-11-03</lastmod>
+    </url>
+    <url>
+         <loc>https://wgz-w.github.io/paper-reading/templates/paper-note/</loc>
+         <lastmod>2026-11-03</lastmod>
+    </url>
+    <url>
+         <loc>https://wgz-w.github.io/paper-reading/topics/</loc>
+         <lastmod>2026-11-03</lastmod>
+    </url>
+    <url>
+         <loc>https://wgz-w.github.io/paper-reading/topics/aerial-vision-language-navigation/</loc>
+         <lastmod>2026-11-03</lastmod>
+    </url>
+</urlset>

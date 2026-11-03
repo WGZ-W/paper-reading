@@ -17,4 +17,5 @@
 
 | 日期 | 内容 |
 | --- | --- |
+| 2026-11-03 | 新增 [OpenFly](papers/2026-openfly/index.md) 精读笔记，整理自动数据工具链、关键帧模型、消融及实机实验，并与 AerialVLN 对照。 |
 | 2026-11-03 | 新增 [AerialVLN](papers/2023-aerialvln/index.md) 精读笔记，整理任务、数据集、CMA 与 LAG、实验及局限。 |

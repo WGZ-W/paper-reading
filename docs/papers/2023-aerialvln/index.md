@@ -181,6 +181,8 @@ Table 5 的 Validation Unseen 结果如下；完整输入一行与 Table 4 的 A
 
 主题入口：[空中视觉语言导航](../../topics/aerial-vision-language-navigation.md)。
 
+后续对照：[OpenFly](../2026-openfly/index.md) 将采集流程转向多引擎自动化，并研究地标关键帧记忆。两篇论文的路线长度、动作空间和指标不同，原论文成功率不可直接比较；详细对照见主题页。
+
 ## 后续行动
 
 - [ ] 核对官方实现中的 LAG 前瞻目标选择、最短路专家和障碍物处理。

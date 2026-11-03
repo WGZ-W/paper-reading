@@ -4,4 +4,4 @@
 
 | 主题 | 主要问题 | 已有笔记 |
 | --- | --- | --- |
-| [空中视觉语言导航](aerial-vision-language-navigation.md) | 将语言指令与第一人称视觉对齐，转化为三维城市环境中的无人机动作。 | 1 |
+| [空中视觉语言导航](aerial-vision-language-navigation.md) | 将语言指令与第一人称视觉对齐，转化为三维城市环境中的无人机动作。 | 2 |

@@ -6,5 +6,19 @@ theme:
   name: material
   language: zh
 
+# Publish the note template directory, which MkDocs excludes by default.
+exclude_docs: |
+  !/templates/
+
+# Detail pages are reached through the topic and paper indexes.
+not_in_nav: |
+  /papers/*/index.md
+  /topics/*.md
+  !/topics/index.md
+
 nav:
   - 首页: index.md
+  - 研究主题: topics/index.md
+  - 论文索引: papers/index.md
+  - 阅读清单: reading-list.md
+  - 笔记模板: templates/paper-note.md

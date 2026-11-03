@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository is a Chinese-language paper-reading site built with MkDocs Material. Read `STRUCTURE.md` before adding content; it defines the target layout and note template. Currently, `docs/index.md` is the only site page. Create planned directories as real content becomes available:
+This repository is a Chinese-language paper-reading site built with MkDocs Material. Read `STRUCTURE.md` before adding content; it defines the target layout and note template. The initial layout is established under `docs/`; extend it as real content becomes available:
 
 - `docs/papers/<year>-<short-name>/index.md`: one canonical note per paper, with publication year in the path.
 - `docs/papers/<year>-<short-name>/assets/`: paper-specific images and figures.
@@ -29,6 +29,8 @@ Keep `.venv/` and generated `site/` output out of commits. Publishing normally h
 ## Coding Style & Naming Conventions
 
 Write site content in Chinese, retaining original paper titles and technical terms where useful. Use descriptive Markdown headings, fenced code blocks, and relative links to Markdown files and assets. Use two-space YAML indentation and no tabs. No formatter or linter is currently configured.
+
+Use the paper's English acronym or short name (e.g., `AerialVLN`) as each note's H1 title and its display name in indexes, reading lists, and navigation. Preserve the full English title in the note's metadata. Prefer the authors' established acronym; document any chosen short name when none exists.
 
 Use lowercase English filenames with hyphens, such as `2026-paper-short-name`. Keep paths stable across rereads. Store each paper once and link it from multiple topics. Follow the note template in `STRUCTURE.md`; distinguish authors’ claims from personal interpretation. Update relevant indexes and reading status when adding notes.
 

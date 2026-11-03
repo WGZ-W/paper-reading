@@ -1,0 +1,10 @@
+site_name: Paper Reading
+site_author: WGZ
+site_url: https://wgz-w.github.io/paper-reading/
+
+theme:
+  name: material
+  language: zh
+
+nav:
+  - 首页: index.md

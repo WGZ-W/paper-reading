@@ -48,7 +48,7 @@ paper-reading/
 | `docs/reading-list.md` | 论文链接、阅读状态、优先级、计划阅读原因；有笔记后链接到对应笔记。 |
 | `docs/topics/index.md` | 已有研究主题及其简要说明，链接到各主题页。 |
 | `docs/topics/<topic>.md` | 主题涉及的问题、建议阅读顺序、相关论文、方法联系与差异。 |
-| `docs/papers/index.md` | 全部已有笔记的论文索引，包含发表年份、论文名、主题、阅读深度及笔记链接。 |
+| `docs/papers/index.md` | 全部已有笔记的论文索引，包含发表年份、论文名、发表出处与时间、主题、阅读深度、阅读日期及笔记链接；发表出处优先记录正式会议或期刊，未正式发表时记录预印本平台，时间精度以已核实的来源为准。 |
 | `docs/papers/<year>-<short-name>/index.md` | 单篇论文的理解、方法、证据、评价、疑问与后续行动。 |
 | `docs/templates/paper-note.md` | 可复制的论文笔记模板，与本文档中的模板约定保持一致。 |
 

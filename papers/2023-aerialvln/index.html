@@ -1,0 +1,1019 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="WGZ">
+      
+      
+        <link rel="canonical" href="https://wgz-w.github.io/paper-reading/papers/2023-aerialvln/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>AerialVLN - Paper Reading</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aerialvln" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Paper Reading" class="md-header__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paper Reading
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AerialVLN
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Paper Reading" class="md-nav__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Paper Reading
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    研究主题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reading-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阅读清单
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../templates/paper-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题与背景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题与背景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        任务设定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 数据采集与标注
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-seq2seq-cma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Seq2Seq 与跨模态注意力 CMA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-look-ahead-guidancelag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Look-ahead Guidance（LAG）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验与证据
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验与证据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据划分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整集：传统基线与人类差距大
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#da-lag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小场景子集：DA 与 LAG 的作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模态消融与失败分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的理解与评价
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="我的理解与评价">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最有价值的贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        适用条件与局限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与其他论文的联系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后续行动
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        来源定位
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aerialvln">AerialVLN</h1>
+<blockquote>
+<p>完整英文标题：AerialVLN: Vision-and-Language Navigation for UAVs
+</p>
+<p>作者：Shubo Liu、Hongsheng Zhang、Yuankai Qi、Peng Wang、Yanning Zhang、Qi Wu；前两位为共同第一作者。</p>
+<p>发表年份 / 版本：2023，arXiv:2308.06735v1，2023-08-13。本笔记以提供的 11 页 PDF 为准，不混用后续版本结果。</p>
+<p>原文：<a href="https://arxiv.org/abs/2308.06735v1">arXiv v1</a>；论文所列代码与数据入口：<a href="https://github.com/AirVLN/AirVLN">AirVLN/AirVLN</a>。本次未核查或运行代码。</p>
+<p>阅读日期：2026-11-03</p>
+<p>阅读深度：精读（正文及图表；未复现，未阅读独立补充材料）</p>
+<p>主题标签：空中视觉语言导航、无人机、连续环境、跨模态对齐、模仿学习</p>
+</blockquote>
+<h2 id="_1">一句话总结</h2>
+<p>AerialVLN 将视觉语言导航扩展到城市级三维无人机飞行，建立 25 个场景、8,446 条航线与 25,338 条语言指令的仿真基准，并提出沿参考路线向前寻找监督目标的 Look-ahead Guidance（LAG）；低成功率表明，长程路线跟随、三维视觉语言对齐和正确停止仍然困难。</p>
+<h2 id="_2">问题与背景</h2>
+<p>地面 VLN 通常研究室内或街景导航。飞行进一步引入高度变化、水平侧移、建筑遮挡与三维障碍物，同时路线更长、需要持续跟踪多个地标。已有小型空中导航设置不足以覆盖这些问题。</p>
+<p>本论文的主要贡献是<strong>任务定义、仿真环境和数据集</strong>，同时提供模型及训练监督基线。阅读时应区分“建立困难基准”与“解决该基准”。</p>
+<h3 id="_3">任务设定</h3>
+<p>根据第 3、4 节：智能体从给定初始位姿出发，接收一条自然语言指令，逐步根据第一人称观测预测动作，直到输出 Stop 或达到最大步数。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>设置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>环境</td>
+<td>Unreal Engine 4 + AirSim；无预建导航图，未被物体占据的位置可导航。</td>
+</tr>
+<tr>
+<td>基线观测</td>
+<td>前视 RGB 与深度图；深度感知范围 100 米，观察其他方向需要转向。</td>
+</tr>
+<tr>
+<td>自由度</td>
+<td>动作覆盖位置 x、y、z 与偏航角，共 4 DoF；记录的位姿包含 6 DoF，不代表基线可控制全部六个自由度。</td>
+</tr>
+<tr>
+<td>水平移动</td>
+<td>前进、左移、右移，每次 5 米。</td>
+</tr>
+<tr>
+<td>转向</td>
+<td>左转或右转，每次 15 度。</td>
+</tr>
+<tr>
+<td>垂直移动</td>
+<td>上升或下降，每次 2 米。</td>
+</tr>
+<tr>
+<td>停止</td>
+<td>Stop；共八种动作。</td>
+</tr>
+<tr>
+<td>成功条件</td>
+<td>停止位置到目标的距离小于 20 米。</td>
+</tr>
+</tbody>
+</table>
+<p>“连续环境”表示智能体不局限于预定义导航图；<strong>基线动作选择仍是离散的</strong>。模拟器支持更多观测、天气和光照设置，但不能据此认为基线使用了这些信息，或已证明相应鲁棒性。</p>
+<h2 id="_4">核心方法</h2>
+<h3 id="1">1. 数据采集与标注</h3>
+<p>第 5 节描述的流程是：具有 AOPA 资质的飞手在模拟器中驾驶无人机经过指定地标，生成轨迹；移除冗余运动后离散为基础动作；AMT 标注者观看飞行视频，每条航线由不同标注者给出三份指令，再由另一组人员检查。</p>
+<p>完整数据集覆盖城市中心、工厂、公园和村落等 25 个场景、870 余种物体。平均路线长 <strong>661.8 米</strong>，约 <strong>204 个动作</strong>；指令平均 <strong>83 个词</strong>，词汇量为 <strong>4,470</strong>。作者还说明提供子路径与子指令对齐，支持细粒度学习。</p>
+<p>小场景子集 <strong>AerialVLN-S</strong> 包含 17 个场景、3,916 条路线和 11,748 条指令，平均路线长 321.3 米、约 115 个动作。它不是完整集的同难度替代：部分起点甚至能够观察到目标。</p>
+<h3 id="2-seq2seq-cma">2. Seq2Seq 与跨模态注意力 CMA</h3>
+<ul>
+<li><strong>Seq2Seq</strong>：编码 RGB、深度和整条指令，将特征输入 GRU，通过循环隐藏状态预测动作。</li>
+<li><strong>CMA（Cross-Modal Attention）</strong>：用 BiLSTM 编码指令；循环状态跟踪观测和上一动作，再对当前相关的指令片段进行注意力选择；根据该语言表示选择 RGB、深度中的相关信息，最后由决策 GRU 输出动作。</li>
+</ul>
+<p>直觉上，CMA 不仅需要知道“看见什么”，还需要跟踪“现在执行到哪句话”，再寻找对应地标。</p>
+<p><img alt="CMA 架构：语言、RGB、深度经注意力和循环状态融合后预测动作。" src="assets/cma-architecture.png" /></p>
+<p>图源：原论文 Figure 4，PDF 第 6 页。图中为 CMA 基线；LAG 在此基础上改变训练监督目标。</p>
+<h3 id="3-look-ahead-guidancelag">3. Look-ahead Guidance（LAG）</h3>
+<p><strong>问题</strong>：student-forcing 训练让模型执行自己预测的动作，可能偏离示范轨迹。如果此时用“到最终终点的最短路”生成监督，可能跳过指令要求经过的地标，造成语言与动作监督不一致。</p>
+<p>第 6.2.1 节与 Figure 5 的做法：</p>
+<ol>
+<li>当前处于偏离位置 X，寻找返回参考轨迹的最短路径，其接入点记为 B。</li>
+<li>从 B 沿参考轨迹向前推进 <strong>10 步</strong>，得到前瞻目标 C。</li>
+<li>计算 X 到 C 的最短路径，取第一个动作作为当前位置的监督动作。</li>
+</ol>
+<p>“先回轨迹、再向前走”用于确定 C；实际监督来自 <strong>X 到 C</strong> 的路径，不必先执行 X 到 B。作者将此策略与 CMA 结合，记为 LAG。</p>
+<p>我的理解：LAG 约束训练时的局部恢复方向，使其仍围绕指令路线前进。它没有直接解决全部长程记忆问题，也不表示推理时可以查询真实路线。</p>
+<h2 id="_5">实验与证据</h2>
+<h3 id="_6">数据划分</h3>
+<p>以下为 Table 3 的完整集划分；同一环境可用于多个划分，不能把场景列直接相加。</p>
+<table>
+<thead>
+<tr>
+<th>划分</th>
+<th>场景数</th>
+<th>路线数</th>
+<th>指令数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Train</td>
+<td>17</td>
+<td>5,460</td>
+<td>16,380</td>
+</tr>
+<tr>
+<td>Val Seen</td>
+<td>17</td>
+<td>606</td>
+<td>1,818</td>
+</tr>
+<tr>
+<td>Val Unseen</td>
+<td>8</td>
+<td>770</td>
+<td>2,310</td>
+</tr>
+<tr>
+<td>Test Unseen</td>
+<td>8</td>
+<td>1,610</td>
+<td>4,830</td>
+</tr>
+</tbody>
+</table>
+<p>Seen 指训练阶段见过的环境；Unseen 用于考察未见环境泛化。论文说明测试目标位置不公开，以评估服务器评分；本次未验证服务器当前状态。</p>
+<h3 id="_7">指标</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>含义</th>
+<th>方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NE</td>
+<td>最终停止位置与目标的距离，单位为米。</td>
+<td>越低越好</td>
+</tr>
+<tr>
+<td>SR</td>
+<td>停止在目标 20 米范围内的比例。</td>
+<td>越高越好</td>
+</tr>
+<tr>
+<td>OSR</td>
+<td>轨迹上曾有位置进入目标 20 米范围内的比例，无须在那里停止。</td>
+<td>越高越好</td>
+</tr>
+<tr>
+<td>SDTW</td>
+<td>成功率加权的归一化动态时间规整，兼顾成功与参考路线相似性。</td>
+<td>越高越好</td>
+</tr>
+</tbody>
+</table>
+<p>下面 SR、OSR、SDTW 均按原表的百分数表示。不能只依据 NE 或 SR 判断是否忠实执行了沿途指令。</p>
+<h3 id="_8">完整集：传统基线与人类差距大</h3>
+<p>原论文 Table 4 上半部分，<strong>AerialVLN / Test Unseen</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>NE（米）</th>
+<th>SR（%）</th>
+<th>OSR（%）</th>
+<th>SDTW（%）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Random</td>
+<td>356.3</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>Action Sampling</td>
+<td>441.9</td>
+<td>0.2</td>
+<td>1.8</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>Seq2Seq</td>
+<td>558.8</td>
+<td>1.0</td>
+<td>4.9</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>CMA</td>
+<td>358.6</td>
+<td>1.6</td>
+<td>4.1</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Human</td>
+<td>73.5</td>
+<td>80.8</td>
+<td>80.8</td>
+<td>14.2</td>
+</tr>
+</tbody>
+</table>
+<p>这些基线在该设置下远未达到人类水平。Human 的 SR 很高但 SDTW 明显更低，也提醒我们：达到目标与复现参考路线是不同的评价维度。不能将这组结果推广成所有后续方法的能力上限。</p>
+<h3 id="da-lag">小场景子集：DA 与 LAG 的作用</h3>
+<p>原论文 Table 4 下半部分，<strong>AerialVLN-S</strong>。DA 指 Dataset Aggregation，通过收集模型实际执行动作产生的状态，缓解训练与测试状态分布不一致。</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>Val Unseen SR（%）</th>
+<th>Val Unseen SDTW（%）</th>
+<th>Test Unseen SR（%）</th>
+<th>Test Unseen SDTW（%）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seq2Seq</td>
+<td>2.3</td>
+<td>0.7</td>
+<td>2.2</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td>CMA</td>
+<td>3.2</td>
+<td>1.1</td>
+<td>3.9</td>
+<td>1.4</td>
+</tr>
+<tr>
+<td>Seq2Seq-DA</td>
+<td>4.0</td>
+<td>0.7</td>
+<td>3.5</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>CMA-DA</td>
+<td>4.5</td>
+<td>1.0</td>
+<td>4.3</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>LAG</td>
+<td>5.1</td>
+<td>1.4</td>
+<td>4.5</td>
+<td>1.3</td>
+</tr>
+</tbody>
+</table>
+<p>LAG 相对 CMA-DA 在未见验证集的 SR 提升 <strong>0.6 个百分点</strong>，未见测试集提升 <strong>0.2 个百分点</strong>，SDTW 也有小幅提升。但它<strong>并非所有指标都优于普通 CMA</strong>：测试集 SDTW 为 1.3，低于普通 CMA 的 1.4；已见验证集 SR 为 7.2%，也低于 CMA-DA 的 9.9%。</p>
+<p>更准确的结论是“相对 DA 基线，LAG 在小场景未见环境的部分指标上有改善”。原表没有给出完整集上的 LAG 结果，不能将这里的 4.5% 与完整集 CMA 的 1.6% 直接比较。</p>
+<h3 id="_9">模态消融与失败分析</h3>
+<p>Table 5 的 Validation Unseen 结果如下；完整输入一行与 Table 4 的 AerialVLN-S / CMA-DA 对应，不应当作完整集结果。</p>
+<table>
+<thead>
+<tr>
+<th>输入</th>
+<th>SR（%）</th>
+<th>OSR（%）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RGB + 深度 + 指令</td>
+<td>4.5</td>
+<td>13.9</td>
+</tr>
+<tr>
+<td>RGB + 指令</td>
+<td>3.2</td>
+<td>7.9</td>
+</tr>
+<tr>
+<td>深度 + 指令</td>
+<td>3.0</td>
+<td>18.1</td>
+</tr>
+<tr>
+<td>仅指令</td>
+<td>1.3</td>
+<td>12.1</td>
+</tr>
+<tr>
+<td>RGB + 深度，无指令</td>
+<td>2.1</td>
+<td>11.1</td>
+</tr>
+</tbody>
+</table>
+<p>去掉视觉或语言都会降低 SR；RGB 和深度均有贡献。但消融不足以证明数据“没有偏差”，且仅深度输入的 OSR 更高，也说明指标之间可能存在取舍。</p>
+<p>作者还报告：长路径组平均 813.2 米、SR 为 1.8%；短路径组平均 326.9 米、SR 为 7.4%（第 6.2.2 节）。这支持长程任务更困难的观察，但该处未清楚标出具体模型和完整评估条件，不宜视为独立控制变量的严格消融。较大的 OSR 与 SR 差距，提示“经过目标却未正确停止”是失败来源之一。</p>
+<h2 id="_10">我的理解与评价</h2>
+<h3 id="_11">最有价值的贡献</h3>
+<ol>
+<li>将长程语言路线、三维行动和城市级场景结合，揭示地面 VLN 基线迁移到空中的困难。</li>
+<li>同时提供完整集与小场景子集，便于分别研究长程行为和较基础的空中导航。</li>
+<li>LAG 强调监督动作必须服务于指令路线，为偏航后构造模仿目标提供了直观方案。</li>
+</ol>
+<h3 id="_12">适用条件与局限</h3>
+<ul>
+<li><strong>仿真边界</strong>：没有展示真实无人机部署实验；支持动态天气、光照与交通，不等于已经验证跨这些条件的泛化或 sim-to-real 效果。</li>
+<li><strong>动作与阈值</strong>：5 米水平步长与 20 米成功范围适合基准研究，不能直接解释为精确降落能力；低 NE 也不等于飞行安全。</li>
+<li><strong>统计可信度</strong>：LAG 部分提升较小，当前 PDF 未报告多随机种子方差或置信区间，需要复现判断稳定性。</li>
+<li><strong>语言样本</strong>：Table 2 的语言现象统计只抽样 25 条指令，不宜直接代表整个数据集的精确比例。</li>
+<li><strong>复现细节</strong>：正文对训练超参数、专家动作生成和碰撞处理等信息不足，应查阅代码及补充材料，不能自行补写为已知事实。</li>
+</ul>
+<p>我的判断：这篇论文适合作为空中 VLN 的任务与数据基准起点。后续值得研究如何维持语言进度、恢复偏航并判断停止，而不仅是更换视觉编码器。</p>
+<h2 id="_13">与其他论文的联系</h2>
+<p>以下依据本论文的相关工作与参考文献整理，相关论文尚未在本项目中独立精读：</p>
+<table>
+<thead>
+<tr>
+<th>相关工作</th>
+<th>与 AerialVLN 的联系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R2R / RxR</td>
+<td>提供地面 VLN 的任务与语言背景；本文增加空中行动和更长路线。</td>
+</tr>
+<tr>
+<td>VLN-CE（Beyond the Nav-Graph，2020）</td>
+<td>同样研究无预建导航图的连续环境；本文转向室外三维飞行。</td>
+</tr>
+<tr>
+<td>LANI</td>
+<td>较早的语言条件空中导航；本文将其 LingUNet 改为逐步决策基线。</td>
+</tr>
+<tr>
+<td>ANDH（Aerial Vision-and-Dialog Navigation，2022）</td>
+<td>研究空中视觉对话导航；本文强调第一人称视觉、路线指令和可交互环境。</td>
+</tr>
+<tr>
+<td>LAW（Language-Aligned Waypoint Supervision，2021）</td>
+<td>语言对齐路点监督为 LAG 提供启发：恢复动作应考虑参考路线。</td>
+</tr>
+</tbody>
+</table>
+<p>主题入口：<a href="../../topics/aerial-vision-language-navigation/">空中视觉语言导航</a>。</p>
+<p>后续对照：<a href="../2026-openfly/">OpenFly</a> 将采集流程转向多引擎自动化，并研究地标关键帧记忆。两篇论文的路线长度、动作空间和指标不同，原论文成功率不可直接比较；详细对照见主题页。</p>
+<h2 id="_14">后续行动</h2>
+<ul>
+<li>[ ] 核对官方实现中的 LAG 前瞻目标选择、最短路专家和障碍物处理。</li>
+<li>[ ] 查阅训练超参数、最大动作数、随机种子与碰撞终止规则。</li>
+<li>[ ] 补读 VLN-CE 与 LAW，比较路线监督和偏航恢复机制。</li>
+<li>[ ] 如开展复现，先复现 AerialVLN-S 的 CMA-DA，再比较 LAG；记录 SR、OSR、SDTW 和多种子结果。</li>
+<li>[ ] 单独分析停止决策和长程记忆的作用，避免仅以最终 SR 推断改进原因。</li>
+</ul>
+<h2 id="_15">来源定位</h2>
+<p>数据与结果来自提供的 arXiv v1 PDF：第 3、4 节为任务与动作空间；第 5 节、Table 1、Table 3 为数据统计与划分；第 6 节、Figure 4、Figure 5、Table 4、Table 5 为模型、监督策略与实验。章节与表图编号均指原论文。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

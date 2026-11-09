@@ -1,0 +1,998 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="WGZ">
+      
+      
+        <link rel="canonical" href="https://wgz-w.github.io/paper-reading/papers/2026-urbanvla/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>UrbanVLA - Paper Reading</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#urbanvla" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Paper Reading" class="md-header__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paper Reading
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UrbanVLA
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Paper Reading" class="md-nav__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Paper Reading
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    研究主题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reading-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阅读清单
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../templates/paper-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题与背景
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 输入和输出：将粗路线变成可执行局部轨迹
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-htl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. HTL：避免把理想参考轨迹当作必须精确追踪的输入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. SFT：同时学习导航动作和真实场景理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-rft-iql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. RFT：用离线 IQL 改善安全与未见场景表现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验与证据
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验与证据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仿真设置及指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sns-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主结果：成功率和 SNS 明显提高，Cost 并非最优
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTL 消融：仿真略降，真实路线完成显著提高
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RFT 消融：未见集收益更明显
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实机部署与定性证据
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的理解与评价
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="我的理解与评价">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最有价值的贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局限与疑问
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与其他论文的联系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后续行动
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        来源定位
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="urbanvla">UrbanVLA</h1>
+<blockquote>
+<p>完整英文标题：UrbanVLA: A Vision-Language-Action Model for Urban Micromobility</p>
+<p>作者：Anqi Li、Zhiyong Wang、Jiazhao Zhang（共同第一作者）、Minghan Li、Yunpeng Qi、Zhibo Chen、Zhizheng Zhang、He Wang；通讯作者为 Zhizheng Zhang、He Wang。</p>
+<p>发表年份 / 会议 / 版本：2026 / ICRA 2026 / 用户提供的 IEEE 正式版，8 页，页码 14655–14662；本笔记按该版本归档。</p>
+<p>原文：<a href="https://doi.org/10.1109/ICRA57385.2026.11695786">DOI: 10.1109/ICRA57385.2026.11695786</a>；<a href="https://pku-epic.github.io/UrbanVLA-Web/">项目主页</a>（链接来自论文，本次未核查代码发布状态）。</p>
+<p>阅读日期：2026-11-09</p>
+<p>阅读深度：精读（正文与主要图表；未复现）</p>
+<p>主题标签：城市微出行、路线条件导航、VLA、导航软件、仿真到现实、离线强化学习、社会导航</p>
+</blockquote>
+<h2 id="_1">一句话总结</h2>
+<p>UrbanVLA 将导航软件提供的粗糙路线编码成路点与转向提示，结合多视角 RGB 历史预测局部轨迹；通过启发式路线抽象（HTL）、监督微调（SFT）及混合仿真与实机数据的 IQL 强化微调（RFT），学习在路线有误差时依靠视觉完成城市导航，在 MetaUrban SocialNav 未见集达到 88% 成功率，并展示超过 500 米的实机路线。</p>
+<h2 id="_2">问题与背景</h2>
+<p>配送机器人、轮椅和引导机器人常运行在人行道、路口、天桥等空间。导航软件能提供整体路线，却不保证路点精确落在可通行区域：道路中心线、GNSS 误差和地图简化，都可能让“目标点”偏到人行道之外。</p>
+<p>因此，直接把导航路点交给点目标导航器存在隐患：机器人可能执着地追逐错误坐标，而没有理解视觉上真正可走的区域。高精地图与 SLAM 管线又有建图和维护成本。论文希望同时获得两层能力：</p>
+<ol>
+<li><strong>高层路线与视觉对齐</strong>：知道应沿哪个街区前进、什么时候转弯，容忍路点的几何误差。</li>
+<li><strong>低层局部导航</strong>：到达局部目标、绕开障碍并与行人保持合理距离。</li>
+</ol>
+<p>这里的语言主要是由结构化路线自动生成的 <strong>roadbook</strong>，并非任意的人类自由语言指令；“无需精细地图”也不意味着完全不依赖地图或定位，实机仍调用高德导航 API，并用 GNSS 将路线转到机器人坐标系。</p>
+<h2 id="_3">核心方法</h2>
+<h3 id="1">1. 输入和输出：将粗路线变成可执行局部轨迹</h3>
+<p>第 III-A、III-B 节定义策略输入为目标路线与多视角 RGB 历史，输出为机器人当前坐标系下的一串 SE(2) 路点，即平面位置与朝向。</p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>做法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>近期路线几何</td>
+<td>将前方 40 米路线按 2 米间隔重采样，论文设置为 20 个路点，并转换到机器人坐标系。</td>
+</tr>
+<tr>
+<td>街区级语义提示</td>
+<td>补充“直行多少米，然后左转 / 右转 / 停止”。训练时由轨迹拐点生成，实机由导航 API 获得。</td>
+</tr>
+<tr>
+<td>观测</td>
+<td>导航任务用滑动窗口保留最近 k 帧、多摄像头 RGB。</td>
+</tr>
+<tr>
+<td>视觉编码</td>
+<td>DINOv2 与 SigLIP 特征按通道拼接，再经网格池化和两层 MLP 投影。</td>
+</tr>
+<tr>
+<td>语言与动作</td>
+<td>Qwen2 主干融合视觉与路线 Token；动作 Token 经 MLP 解码成轨迹。</td>
+</tr>
+<tr>
+<td>执行</td>
+<td>预测轨迹交给局部规划器执行，而非直接生成关节或电机控制。</td>
+</tr>
+</tbody>
+</table>
+<p>模型以预训练导航基础模型 <strong>NavFoM</strong> 初始化，使用双分支：导航分支输出连续轨迹，VideoQA 分支自回归输出语言。两者共享视觉语言主干，但论文没有要求每一步先输出一段文字推理再采取动作。</p>
+<h3 id="2-htl">2. HTL：避免把理想参考轨迹当作必须精确追踪的输入</h3>
+<p>训练数据通常只有实际行走轨迹；仿真规划器提供的参考路线还可能过于理想。如果将它们直接作为输入条件，模型容易学成轨迹复制器，无法处理真实导航软件的偏差。</p>
+<p><strong>Heuristic Trajectory Lifting（HTL）</strong> 从原始轨迹生成更抽象、带噪声的高层路线：</p>
+<ol>
+<li>对网络视频提取的轨迹用 Savitzky–Golay 滤波去噪；平滑仿真轨迹直接使用。</li>
+<li>去掉自交或低质量轨迹。</li>
+<li>根据邻域向量夹角检测显著拐点，合并连续候选，并限制拐点之间的最小弧长间距，将路线分段。</li>
+<li>对各段加入高斯位置扰动，模拟高层路线的几何不确定性。</li>
+<li>平滑连接各段，以固定空间间隔重采样，得到路线条件 R，并生成距离与转向提示。</li>
+</ol>
+<p><strong>关键区别</strong>：HTL 改造的是输入的高层路线条件，监督目标仍来自导航示范。我的理解是，它让“应该沿这个方向走”的粗先验与“当前应该踩在哪里”的精确动作目标分开，迫使模型利用视觉判断可通行空间。</p>
+<h3 id="3-sft">3. SFT：同时学习导航动作和真实场景理解</h3>
+<p>第 III-C、III-D 节使用两类训练任务：</p>
+<ul>
+<li><strong>导航示范</strong>：MetaUrban 中 PPO 专家生成的轨迹，以及 Sekai 网络城市行走视频解析出的轨迹；用 MSE 监督轨迹预测，并以 HTL 生成配套路线条件。</li>
+<li><strong>VideoQA</strong>：来自 LongVU 与 Sekai，使用语言交叉熵损失；这里保留全部输入视觉帧，与导航任务的滑动窗口不同。</li>
+</ul>
+<p>作者的动机是通过网络视频和问答补充真实街景多样性，并保留视觉语义理解能力。但论文没有单独去掉 VideoQA、网络视频或预训练模型的消融，因此不能将最终收益独立归因于其中一项。</p>
+<h3 id="4-rft-iql">4. RFT：用离线 IQL 改善安全与未见场景表现</h3>
+<p>第二阶段用已有示范做 <strong>离线强化学习</strong>，不是让机器人在线无约束探索。数据包括：</p>
+<ul>
+<li>MetaUrban PPO 专家的 <strong>2,400 个 episode，约 40 小时</strong>。</li>
+<li>北京城市区域人工遥操作的 <strong>约 8 小时实机数据</strong>，包括导航信息与实景不一致的情况，以及少量带负奖励的次优示范。</li>
+</ul>
+<p>模型从 SFT 后的主干第 <strong>17 层</strong>提取隐状态作为状态表示 s，将预测轨迹展平成 3N 维动作 a，训练 Q、V 网络估计优势 A(s,a) = Q(s,a) − V(s)。策略更新采用优势加权轨迹回归：</p>
+<pre><code class="language-text">L_policy = E_(s,a)~D [ exp(β A(s,a)) · ||a − π(s)||² ]
+</code></pre>
+<p>与普通行为克隆相比，高优势示范得到更高权重。该机制仍依赖离线数据的覆盖范围，不能保证学会数据中不存在的安全行为。</p>
+<p>奖励由路线完成增量、碰撞和偏离路线走廊组成：</p>
+<pre><code class="language-text">r(s,a) = 0.5 · l_completion − 1_collision − 1_deviation
+</code></pre>
+<p>其中 l_completion 是与参考路线对齐的完成增量。实机奖励通过界面标注或 LiDAR-Odometry 记录生成，因此 <strong>策略使用 RGB，不等于整个采集和部署系统只含 RGB 传感器</strong>。第 III-D 节报告训练使用 8 张 H100、约 12 小时，共 96 GPU 小时；不宜将其理解为包含 NavFoM 预训练和所有数据采集的总成本。</p>
+<h2 id="_4">实验与证据</h2>
+<h3 id="_5">仿真设置及指标</h3>
+<p>MetaUrban 训练使用 <strong>12,800 个场景</strong>，Test 为 <strong>1,000 个场景</strong>，Unseen 为 <strong>100 个场景</strong>。评估任务分为 PointNav 与 SocialNav，采用轮椅形态。</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>关注点</th>
+<th>方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SR</td>
+<td>成功到达的任务比例。</td>
+<td>越高越好</td>
+</tr>
+<tr>
+<td>SPL</td>
+<td>按路径长度加权的成功率，用于 PointNav。</td>
+<td>越高越好</td>
+</tr>
+<tr>
+<td>SNS</td>
+<td>社会导航得分，用于 SocialNav。</td>
+<td>越高越好</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>累积碰撞相关代价。</td>
+<td>越低越好</td>
+</tr>
+<tr>
+<td>RC</td>
+<td>实机路线完成比例，用于 HTL 消融。</td>
+<td>越高越好</td>
+</tr>
+</tbody>
+</table>
+<p>论文沿用基准指标，未在本文完整重列所有判定阈值和公式，复现时需要核对 MetaUrban 的实现。</p>
+<p><strong>比较边界</strong>：七个基线使用 LiDAR，输出连续转向和加速度；UrbanVLA 使用 RGB，输出二维轨迹，仿真中直接把智能体移动到预测路点，并将最大步距限制为形态半径（1.5 米），以便检测碰撞。因此，结果包含感知、预训练和动作执行接口等多项差异，不能视为控制变量完全一致的纯算法比较。</p>
+<h3 id="sns-cost">主结果：成功率和 SNS 明显提高，Cost 并非最优</h3>
+<p>下表摘自 <strong>Table I</strong>，保留全部方法的 SocialNav 指标：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>Test SR</th>
+<th>Test SNS</th>
+<th>Test Cost</th>
+<th>Unseen SR</th>
+<th>Unseen SNS</th>
+<th>Unseen Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PPO</td>
+<td>34%</td>
+<td>0.64</td>
+<td>0.66</td>
+<td>24%</td>
+<td>0.57</td>
+<td>0.51</td>
+</tr>
+<tr>
+<td>PPO-Lag</td>
+<td>17%</td>
+<td>0.51</td>
+<td>0.33</td>
+<td>8%</td>
+<td>0.47</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td>PPO-ET</td>
+<td>5%</td>
+<td>0.52</td>
+<td>0.26</td>
+<td>2%</td>
+<td>0.50</td>
+<td>0.62</td>
+</tr>
+<tr>
+<td>IQL</td>
+<td>36%</td>
+<td>0.67</td>
+<td>0.39</td>
+<td>27%</td>
+<td>0.62</td>
+<td>3.05</td>
+</tr>
+<tr>
+<td>TD3+BC</td>
+<td>26%</td>
+<td>0.61</td>
+<td>0.62</td>
+<td>32%</td>
+<td>0.64</td>
+<td>1.53</td>
+</tr>
+<tr>
+<td>BC</td>
+<td>28%</td>
+<td>0.56</td>
+<td>1.23</td>
+<td>18%</td>
+<td>0.54</td>
+<td>0.58</td>
+</tr>
+<tr>
+<td>GAIL</td>
+<td>34%</td>
+<td>0.63</td>
+<td>0.71</td>
+<td>28%</td>
+<td>0.61</td>
+<td>0.67</td>
+</tr>
+<tr>
+<td>UrbanVLA</td>
+<td><strong>91%</strong></td>
+<td><strong>0.87</strong></td>
+<td>0.81</td>
+<td><strong>88%</strong></td>
+<td><strong>0.85</strong></td>
+<td>0.82</td>
+</tr>
+</tbody>
+</table>
+<p>相对各列最好的基线 SR，UrbanVLA 从 36% 到 91%、从 32% 到 88%，分别提高 <strong>55、56 个百分点</strong>。摘要和引言的“55%/56% improvement”应结合这些原始值理解，不宜当作相对增幅。</p>
+<p>PointNav 中，UrbanVLA 的 Test / Unseen 分别达到 <strong>94% / 97% SR、0.91 / 0.95 SPL</strong>，Cost 为 <strong>0.94 / 0.84</strong>；最佳基线 SR 为 66% / 60%。但无论 PointNav 还是 SocialNav，UrbanVLA 的 Cost 都不是最低，因此“成功率高、社会导航分数高”不能直接改写为“碰撞代价最低”。作者以完成更长路线、遇到更多障碍解释部分代价差异，本文没有提供按行驶距离归一化的对照来隔离这一因素。</p>
+<h3 id="htl">HTL 消融：仿真略降，真实路线完成显著提高</h3>
+<p><strong>Table II</strong> 对比 SFT 模型，不包含后续 RFT：</p>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>仿真 SocialNav Test SR</th>
+<th>仿真 Cost</th>
+<th>实机平均 RC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无 HTL</td>
+<td>93%</td>
+<td>0.81</td>
+<td>42%</td>
+</tr>
+<tr>
+<td>有 HTL</td>
+<td>89%</td>
+<td>0.86</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<p>实机场景是一条 <strong>60 米长、约 8 米宽的 C 形人行道</strong>，导航软件用折线粗略表示曲线，与实际路线中心线约有 <strong>10 米偏差</strong>。结果取十次测试平均；偏离可行路线走廊时终止。</p>
+<p>这组结果最直接支持 HTL 的动机：牺牲部分理想仿真路线上的拟合表现，换取对真实路线偏差的容忍。<strong>100% 是这条路线的平均完成比例，不是所有城市任务的成功率</strong>；十次同路线测试也不足以覆盖所有地图误差类型。</p>
+<h3 id="rft">RFT 消融：未见集收益更明显</h3>
+<p><strong>Table III</strong>，均为 SocialNav：</p>
+<table>
+<thead>
+<tr>
+<th>训练阶段</th>
+<th>Test SR</th>
+<th>Test Cost</th>
+<th>Unseen SR</th>
+<th>Unseen Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仅 SFT</td>
+<td>89%</td>
+<td>0.86</td>
+<td>82%</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>SFT + RFT</td>
+<td>91%</td>
+<td>0.80</td>
+<td>88%</td>
+<td>0.82</td>
+</tr>
+</tbody>
+</table>
+<p>RFT 将 Test / Unseen SR 分别提高 <strong>2 / 6 个百分点</strong>，Cost 分别下降 <strong>0.06 / 0.16</strong>，支持它在这两个划分上的增益。Table I 的 Test Cost 为 <strong>0.81</strong>，Table III 为 <strong>0.80</strong>；此处保留各表原值，不自行统一。</p>
+<p>作者将提升归于安全奖励与真实遥操作数据，但没有进一步拆开“新增真实数据”和“IQL 更新方式”的影响；尚不能确认相对等量数据继续 SFT 的净收益。</p>
+<h3 id="_6">实机部署与定性证据</h3>
+<p>第 IV-A、IV-C 节与 Figures 1、3、4 的设置为：</p>
+<ul>
+<li><strong>平台</strong>：Unitree Go2 四足机器人，前、左、右、后四个摄像头。</li>
+<li><strong>路线和定位</strong>：高德 Web API 提供高层路线，GNSS 提供位置与朝向，转换成局部坐标。</li>
+<li><strong>推理</strong>：模型运行在远端 RTX 4090 服务器上，通过 Web-ADK 与机器人通信；系统运行频率为 <strong>2 Hz</strong>。</li>
+<li><strong>执行</strong>：现成局部规划器跟踪预测轨迹；操作员实时监控，遇到不安全行为会人工停止。</li>
+<li><strong>展示</strong>：天桥、行人穿越、街角转弯、静动态避障，以及光照和夜间变化；报告超过 <strong>500 米</strong>的路线。</li>
+</ul>
+<p>这些案例展示了长程部署的可行性。除 HTL 的单路线量化实验外，论文没有提供覆盖这些长程案例的统一任务总数、整体 SR、人工干预率或每公里碰撞率。图注的“zero-shot”应理解为对未见测试环境的泛化，<strong>模型训练已经包含约 8 小时真实数据</strong>。2 Hz 也对应带远端推理和局部规划器的完整部署，不能写成模型已在机载 Jetson 上独立实时运行。</p>
+<h2 id="_7">我的理解与评价</h2>
+<h3 id="_8">最有价值的贡献</h3>
+<ol>
+<li><strong>重新定义了路线条件的作用</strong>：导航软件提供可纠正的方向先验，视觉负责判断当前空间，而非盲目追踪每个坐标。</li>
+<li><strong>HTL 是面向真实输入误差的数据设计</strong>：不只增加图像多样性，还主动破坏训练中“高层路线等于动作真值”的捷径。仿真下降、实机上升的消融尤其有解释力。</li>
+<li><strong>连接地图服务、VLA 和离线 RL</strong>：利用现有导航工具承担全局路线，VLA 生成局部轨迹，少量实机数据修正决策偏好，形成可部署的分层系统。</li>
+</ol>
+<h3 id="_9">局限与疑问</h3>
+<ul>
+<li><strong>比较条件不完全一致</strong>：LiDAR 与 RGB、从头训练与基础模型初始化、控制量与路点位移都可能影响结果，尚不能隔离 VLA 或 RFT 的单独贡献。</li>
+<li><strong>安全证据需要更细指标</strong>：更高 SR 和 SNS 不等于最低 Cost；尚缺长程实机干预率和碰撞统计。</li>
+<li><strong>HTL 噪声的覆盖范围</strong>：高斯位置扰动主要模拟几何偏差，未直接证明能处理道路封闭、错误转向、路线拓扑错误或严重 GNSS 漂移。</li>
+<li><strong>仍依赖外部系统</strong>：导航 API、GNSS、通信链路和局部规划器共同决定可靠性；“端到端 VLA”描述的是模型从多模态输入到轨迹输出的部分。</li>
+<li><strong>复现信息不足</strong>：正文没有完整列出模型参数规模、历史窗口 k、输出路点数 N、HTL 噪声强度、IQL 超参数、各 SFT 数据量与混合比例，也未报告多种子方差。</li>
+</ul>
+<p>我的判断：这篇论文最值得借鉴的是 <strong>针对高层条件不准确而设计训练数据</strong>，而不只是把强化学习接到 VLA 后面。HTL 的证据较直接；RFT 的消融有收益，但需要匹配数据量与执行接口的进一步实验才能准确归因。</p>
+<h2 id="_10">与其他论文的联系</h2>
+<table>
+<thead>
+<tr>
+<th>工作</th>
+<th>联系与区别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../2023-aerialvln/">AerialVLN</a></td>
+<td>都关心路线忠实度。AerialVLN 用 LAG 构造偏航后的动作监督；UrbanVLA 用 HTL 扰动高层路线条件，学习在路线几何不可靠时结合视觉行动。前者面向三维无人机，后者输出平面轨迹。</td>
+</tr>
+<tr>
+<td><a href="../2026-openfly/">OpenFly</a></td>
+<td>都利用自动构造的数据适配 VLA。OpenFly 强调多引擎自动航线、地标指令与关键帧记忆；UrbanVLA 强调导航软件路线误差、局部连续轨迹和离线 RFT。数据集、动作空间、成功判定不同，不可横向比较 SR。</td>
+</tr>
+<tr>
+<td>NavFoM</td>
+<td>提供初始化与导航模型基础；本文的增量主要是路线条件、HTL 与后训练流程。</td>
+</tr>
+<tr>
+<td>CityWalker / MetaUrban / IQL</td>
+<td>分别对应网络城市视频导航、城市仿真基准和离线强化学习背景；此处仅依 UrbanVLA 的介绍，尚未在本项目独立精读。</td>
+</tr>
+</tbody>
+</table>
+<p>主题入口：<a href="../../topics/urban-micromobility/">城市微出行与路线条件导航</a>。</p>
+<h2 id="_11">后续行动</h2>
+<ul>
+<li>[ ] 核查代码与模型发布情况，补全 SFT 混合比例、历史窗口、轨迹长度和 IQL 超参数。</li>
+<li>[ ] 对比精确路线、HTL 高斯噪声、真实导航误差，分别测量偏移、错误转弯和定位漂移下的表现。</li>
+<li>[ ] 固定感知输入、预训练初始化和执行接口，重新比较 VLA、行为克隆与 RL 基线。</li>
+<li>[ ] 用相同 sim-real 数据量比较继续 SFT 与 IQL，拆分真实数据和强化学习目标的贡献。</li>
+<li>[ ] 增加未见路线与重复试验，记录 SR、RC、每公里碰撞、人工干预、通信延迟和推理开销。</li>
+</ul>
+<h2 id="_12">来源定位</h2>
+<p>本笔记依据用户提供的 IEEE PDF，未运行代码。第 III-A、III-B 节与 Figure 2（PDF 第 2–4 页）对应任务、路线编码与双分支架构；第 III-C、III-D 节（第 4–5 页）对应 HTL、SFT、IQL、奖励与采集；第 IV-A 节、Figure 3（第 5 页）对应仿真与实机设置；Table I、Table II（第 6 页）对应主结果和 HTL 消融；Table III、Figure 4（第 7 页）对应 RFT 消融与实机定性展示。版本与 DOI 据 PDF 首页。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

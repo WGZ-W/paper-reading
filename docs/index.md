@@ -11,11 +11,14 @@
 
 ## 当前关注
 
+[城市微出行与路线条件导航](topics/urban-micromobility.md)：机器人如何在地图路点不准确时，结合视觉识别可行区域、完成转弯并避让行人？
+
 [空中视觉语言导航](topics/aerial-vision-language-navigation.md)：无人机如何理解自然语言指令，在三维环境中识别地标、规划飞行、纠偏并正确停止？
 
 ## 最近更新
 
 | 日期 | 内容 |
 | --- | --- |
+| 2026-11-09 | 新增 [UrbanVLA](papers/2026-urbanvla/index.md) 精读笔记，整理 HTL、SFT / IQL、仿真结果与实机证据边界。 |
 | 2026-11-03 | 新增 [OpenFly](papers/2026-openfly/index.md) 精读笔记，整理自动数据工具链、关键帧模型、消融及实机实验，并与 AerialVLN 对照。 |
 | 2026-11-03 | 新增 [AerialVLN](papers/2023-aerialvln/index.md) 精读笔记，整理任务、数据集、CMA 与 LAG、实验及局限。 |

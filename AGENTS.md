@@ -46,4 +46,6 @@ Keep changes focused. Pull requests should explain the purpose, list affected pa
 
 ## End-of-Response Commit Check
 
-Before finishing every response, check `git status --short` and assess whether changes need committing. If so, include a suggested commit message in the final response using the convention above, with a brief description of the intended changes. Otherwise, state that no commit is needed. Suggesting a commit does not authorize creating one.
+When the user asks to summarize a paper and save its notes, automatically create a local Git commit after saving the note, updating relevant indexes, and running the required checks. Stage only files belonging to that request, leave unrelated changes out of the commit, and report the commit hash and subject. This standing authorization applies to local commits for paper notes only.
+
+Before finishing every response, check `git status --short`. For other work, follow any explicit commit request. Otherwise, suggest a commit message for changes that need committing, or state that no commit is needed.

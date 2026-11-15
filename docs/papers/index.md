@@ -8,5 +8,6 @@
 | 2026 | [SuperMimic](2026-supermimic/index.md) | [CoRL 2026（口头报告）](https://arxiv.org/abs/2610.28480v2)，2026 年 11 月 | [人形机器人全身控制](../topics/humanoid-whole-body-control.md) | 精读（未复现） | 2026-11-15 |
 | 2026 | [UrbanVLA](2026-urbanvla/index.md) | [ICRA 2026](https://doi.org/10.1109/ICRA57385.2026.11695786)，2026 年 6 月 | [城市微出行与路线条件导航](../topics/urban-micromobility.md) | 精读（未复现） | 2026-11-09 |
 | 2026 | [OpenFly](2026-openfly/index.md) | [ICLR 2026](https://openreview.net/pdf?id=OKm3w71ymP)，2026 年 | [空中视觉语言导航](../topics/aerial-vision-language-navigation.md) | 精读（未复现） | 2026-11-03 |
+| 2025 | [π₀.₅](2025-pi05/index.md) | [CoRL 2025](https://proceedings.mlr.press/v305/black25a.html)，2025 年 9 月 | [视觉语言动作模型与机器人操作](../topics/vision-language-action.md) | 精读（未复现） | 2026-11-15 |
 | 2024 | [OpenVLA](2024-openvla/index.md) | [CoRL 2024](https://proceedings.mlr.press/v270/kim25c.html)，2024 年 11 月（论文集 2025 年刊载） | [视觉语言动作模型与机器人操作](../topics/vision-language-action.md) | 精读（未复现） | 2026-11-15 |
 | 2023 | [AerialVLN](2023-aerialvln/index.md) | [ICCV 2023](https://openaccess.thecvf.com/content/ICCV2023/html/Liu_AerialVLN_Vision-and-Language_Navigation_for_UAVs_ICCV_2023_paper.html)，2023 年 10 月 | [空中视觉语言导航](../topics/aerial-vision-language-navigation.md) | 精读（未复现） | 2026-11-03 |

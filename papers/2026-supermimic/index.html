@@ -1,0 +1,746 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="WGZ">
+      
+      
+        <link rel="canonical" href="https://wgz-w.github.io/paper-reading/papers/2026-supermimic/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>SuperMimic - Paper Reading</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#supermimic" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Paper Reading" class="md-header__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paper Reading
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SuperMimic
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Paper Reading" class="md-nav__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Paper Reading
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    研究主题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reading-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阅读清单
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../templates/paper-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题与背景
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入与输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三阶段训练循环
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        策略目标与短窗口
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验与证据
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验与证据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bones-seed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BONES-SEED 动作覆盖与训练成本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        受控比较与机制消融
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实机迁移与速度控制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的理解与评价
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与其他论文的联系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后续行动
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        来源定位
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="supermimic">SuperMimic</h1>
+<blockquote>
+<p>完整英文标题：SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model</p>
+<p>作者：Qiayuan Liao、Yiyang Shao、Junfeng Long、Kevin Zakka、Roberto Horowitz、Pieter Abbeel、Koushil Sreenath。Yiyang Shao 和 Junfeng Long 标注同等贡献，Pieter Abbeel 和 Koushil Sreenath 共同指导。作者来自 UC Berkeley。</p>
+<p>发表出处与时间：CoRL 2026 口头报告，2026 年 11 月，美国得克萨斯州奥斯汀。本笔记依据提供的 19 页 arXiv:2610.28480v2。预印本于 2026-10-20 首发，v2 于 2026-11-09 修订（arXiv 日期）。</p>
+<p>原文与项目：<a href="https://arxiv.org/abs/2610.28480v2">arXiv v2</a> · <a href="https://supermimic.github.io/">项目主页与实机视频</a> · <a href="https://2026.corl.org/">CoRL 2026</a></p>
+<p>阅读日期：2026-11-15</p>
+<p>阅读深度：精读（正文、主要图表及实验附录，未复现）</p>
+<p>主题标签：人形机器人、全身控制、运动跟踪、可微世界模型、基于模型的强化学习、仿真到现实</p>
+</blockquote>
+<h2 id="_1">一句话总结</h2>
+<p>SuperMimic 用一个可微世界模型学习同一台人形机器人在不同参考动作下共享的动力学，并在模型预测的短轨迹上直接对回报求梯度。单张 H100 训练 3 小时即可超过公开 SONIC 检查点在同一仿真基准上的归一化回报，所得控制器也能在 Unitree G1 实机上完成侧滚和翻转等动作。</p>
+<h2 id="_2">问题与背景</h2>
+<p>全身运动跟踪给定一段参考动作，要求策略根据机器人状态输出关节动作，在接触、摩擦和重力作用下尽量复现参考轨迹。参考库从走跑扩展到舞蹈、侧滚和翻转时，无模型 RL 仍要靠大量仿真采样估计动作后果。SONIC 用大规模并行 PPO 训练单一通用策略，展示了覆盖大量动作的能力，同时需要约 21,000 GPU 小时。</p>
+<p>论文的出发点是：参考目标在变，机器人的刚体和接触动力学可以共享。用一套学习到的动力学预测动作后果，可以复用不同动作和历史策略采集的转移数据。常规刚体仿真器负责提供训练转移，梯度由神经网络代理提供，因此可沿用 MuJoCo Warp 这样的仿真器。</p>
+<h2 id="_3">核心方法</h2>
+<h3 id="_4">输入与输出</h3>
+<p>跟踪策略使用最近 <strong>10 帧本体感知</strong>和未来 <strong>10 帧参考动作</strong>。本体感知包括 29 个关节的位置、速度、IMU 角速度、机身坐标系中的重力方向和上一步动作。参考动作编码成 32 维潜变量，由共享解码器结合本体感知输出归一化关节设定值，交给低增益 PD 执行。部署时运行这个策略，世界模型用于训练。</p>
+<h3 id="_5">三阶段训练循环</h3>
+<p><img alt="SuperMimic 的训练循环，策略先采集仿真转移，再拟合世界模型，最后通过冻结的世界模型更新策略。" src="assets/training-loop.png" /></p>
+<p>图源为原论文 Figure 2（PDF 第 4 页）。雪花表示当前阶段冻结参数，火焰表示更新参数。</p>
+<ol>
+<li><strong>采集转移</strong>。当前策略在 MuJoCo Warp 中执行加入高斯噪声的动作，将状态、实际执行的动作及每个 episode 的仿真上下文写入固定容量的 replay buffer。动作噪声扩展模型看到的动作范围。训练重置按一定比例混合均匀采样、低回报片段和历史困难片段。</li>
+<li><strong>拟合世界模型</strong>。从缓冲区取 <code>k = 8</code> 步窗口，以记录的起始状态和动作序列自回归预测。模型训练目标涵盖状态、奖励和无噪声观测的平方误差，以及终止概率的二元交叉熵。通过公式计算的输出项无需对应拟合损失。动力学 MLP 有三层、每层 2048 个隐藏单元，以摩擦、关节标定偏移和躯干质心偏移为上下文。已知传感器噪声在模型外采样。</li>
+<li><strong>更新策略与 critic</strong>。从 replay buffer 取起始状态，固定世界模型参数，用当前策略在模型里展开 <code>H = 32</code> 个控制步。每一步将传感器噪声加回预测观测，再交给策略。把短轨迹的折扣回报及末端 critic 估值沿时间反传（BPTT），利用动力学对状态和动作的导数更新策略。世界模型仍在每轮的拟合阶段更新。</li>
+</ol>
+<h3 id="_6">策略目标与短窗口</h3>
+<p>设 <code>ĉ_t</code> 为到第 <code>t</code> 步的软存活权重，<code>d̂_{t+1}</code> 为下一状态的预测终止概率。原文式 (2) 的策略目标可写为：</p>
+<pre><code class="language-text">ĉ_0 = 1，ĉ_{t+1} = ĉ_t × (1 - d̂_{t+1})
+Ĵ = E[Σ_{t=0}^{H-1} γ^t ĉ_t r̂_{t+1} + γ^H ĉ_H V(ŝ_H, g_H, ξ)]
+</code></pre>
+<p>软存活权重把越界终止转为可微的回报权重。critic 用想象轨迹上的 GAE 目标训练，补估短窗口以后的收益。默认控制频率 50 Hz，8 步拟合窗口约为 0.16 秒，32 步想象窗口约为 0.64 秒。该梯度对应学习到的代理模型，预测和梯度的偏差都可能影响更新方向。</p>
+<h2 id="_7">实验与证据</h2>
+<h3 id="bones-seed">BONES-SEED 动作覆盖与训练成本</h3>
+<p>从已经重定向到 G1 的公开 BONES-SEED 运动库出发，按动作名称排除需要地形或道具的片段，再过滤穿地、悬空等不适合平地的轨迹。最终从 142,220 段保留 <strong>129,514 段、264.56 小时</strong>。归一化回报是整段未折扣奖励和除以其最大可能值，提前终止会降低分数。</p>
+<table>
+<thead>
+<tr>
+<th>检查点</th>
+<th>训练硬件与时间</th>
+<th>GPU 小时（约）</th>
+<th>失败动作数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SONIC 公开检查点</td>
+<td>128 × L40，168 小时</td>
+<td>21,504</td>
+<td>179</td>
+</tr>
+<tr>
+<td>SuperMimic 单卡</td>
+<td>1 × H100，3 小时</td>
+<td>3</td>
+<td>25</td>
+</tr>
+<tr>
+<td>SuperMimic 双卡</td>
+<td>2 × H100，9.8 小时</td>
+<td>19.6</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 3(a) 给出的 SONIC 回报为 <strong>0.90</strong>，单卡阶段在上述预算内超过它。约 56 倍的用时差和约 7,200 倍的 GPU 小时差来自两项运行的公开预算，单卡 3 小时计入完整训练循环，检查点评估单独计时。两者的 GPU 型号不同，SONIC 的训练动作约 611 小时，SuperMimic 用其公开子集。这个对照反映达到所报告回报所用的训练资源，算法差异应结合下面的受控实验判断。</p>
+<p><strong>失败数衡量训练动作覆盖。</strong> 附录 F 使用双方见过的筛选后训练库，每段从第一帧确定性运行一次，关闭域随机化和观测噪声，足底摩擦固定为 1.0。失败沿用 SuperMimic 的终止标准，根据根部高度和倾斜误差判定，同时各策略保留自己的执行器增益、动作尺度和输入构造。Table A.8 显示公开 SONIC 检查点的 44 段翻转全失败，单卡 SuperMimic 只失败 1 段。未见动作的泛化率仍待独立测试。</p>
+<h3 id="_8">受控比较与机制消融</h3>
+<table>
+<thead>
+<tr>
+<th>对照</th>
+<th>原文结果</th>
+<th>证据范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAFAN1 上的 PPO-Sim，Figure 4(a)</td>
+<td>40 段、2.45 小时动作上，SuperMimic 单卡 1.2 小时达到 0.82 检查点回报。PPO-Sim 在 18 小时预算内，1 / 4 / 8 卡分别最终达到 0.60 / 0.70 / 0.72。</td>
+<td>匹配动作、观测、奖励、终止、域随机化和网络规模，PPO 使用 BeyondMimic 超参数，每卡并行环境数为 SuperMimic 的两倍。</td>
+</tr>
+<tr>
+<td>动作库规模，Figure 3(b,c)</td>
+<td>数据为 1、7、40、264 小时，达到目标回报的 GPU 小时增长缓慢，8 步状态预测误差保持在 0.007–0.011。</td>
+<td>误差按预设名义误差归一化，在策略 rollout 上在线测量，覆盖同一机器人和相同任务设定。</td>
+</tr>
+<tr>
+<td>Rollout 吞吐，Figure 5(a)</td>
+<td>实用批量（约 2k–16k 并行环境）下，世界模型每秒控制步数超过 MuJoCo Warp 的 10 倍，64k 时约 62 倍。</td>
+<td>H100 上的 rollout 吞吐，世界模型用 TF32，一个 50 Hz 控制步对应仿真器的四个 5 ms 子步。</td>
+</tr>
+<tr>
+<td>同样使用世界模型的 PPO-WM，Figure 5(b)</td>
+<td>在 LAFAN1 走、跑和冲刺片段上，BPTT 策略以约 1/64 的想象步数达到 PPO-WM 的最佳训练回报。</td>
+<td>横轴是想象步数，回报为训练回报。该消融针对策略更新方式。</td>
+</tr>
+<tr>
+<td>Critic 与预测长度，Figure 4(b,c)、§4.3</td>
+<td>有 critic 时 <code>H = 16</code> 达到约 0.82，<code>H = 32</code> 达标最快。无 critic 时 <code>H = 16</code> 未达标。T-pose 受仿真速度推扰（0.5–4 m/s）后，有 critic 的策略在 0.5–2.4 秒恢复稳定，无 critic 的策略持续踉跄并在最大推扰下摔倒。</td>
+<td>主结果与消融分别报告检查点回报和训练回报。后者的起点会随训练中的重置采样改变。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">实机迁移与速度控制</h3>
+<ul>
+<li><strong>实机（§4.4、Figure 6）</strong>：同一个 G1 跟踪器无需逐动作调参，展示跳步、侧滚、90° 翻转和原地 360° 翻转。论文以四种动作的图像序列提供定性证据，规模化成功率仍来自仿真评估。</li>
+<li><strong>速度接口（§4.5、Figure 7、附录 G）</strong>：为平面速度与偏航角速度命令训练独立编码器，复用动力学和动作解码器。RL 版本用速度跟踪奖励，蒸馏版本从参考动作读出命令并用参考跟踪奖励。672 个阶跃命令各试 4 次，RL 在 650 个命令上的误差更小，蒸馏在 15 个上更小，另有 7 个快速转向命令下蒸馏四试全摔。两者的中位相对稳态误差为 0.16 和 0.49。RL 版本还使用随机速度指令和参考潜变量对齐，两种策略各用一个训练种子，收益对应整套训练设置。速度任务的梯度只更新其编码器，解码器由动作跟踪任务更新。</li>
+</ul>
+<h2 id="_10">我的理解与评价</h2>
+<p>最可复用的是把<strong>共享的机器人动力学</strong>与<strong>各动作的跟踪目标</strong>分开。吞吐实验量化了用网络替代刚体仿真 rollout 的收益，PPO-WM 对照单独检验了可微更新对想象样本用量的影响。推扰实验也说明，名义跟踪回报相近的策略仍可能具有不同的恢复能力。</p>
+<p>有三个边界值得保留：</p>
+<ul>
+<li><strong>规模增长的证据针对一个机体与平地</strong>。改变机器人形态、接触表面或道具时，动力学覆盖范围也会变。世界模型仅由仿真数据拟合。</li>
+<li><strong>评测条件影响模型的排名</strong>。当前大规模评测使用训练库、单次确定性 rollout 和一套终止标准。还需要验证留出动作、不同摩擦与重复随机试验下的表现。正文称多个种子的训练稳定，图中未给出方差。</li>
+<li><strong>预测准确与梯度可靠需要分别检验</strong>。稳定的 8 步状态误差支持在已测分布内复用模型，策略用到的是最长 32 步的回报梯度。极端接触和被推后状态尤其适合单独检查这两者。</li>
+</ul>
+<h2 id="_11">与其他论文的联系</h2>
+<table>
+<thead>
+<tr>
+<th>工作</th>
+<th>与 SuperMimic 的关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SONIC</td>
+<td>同样大规模跟踪人类动作，使用仿真 PPO 训练通用策略。为比较训练资源和动作覆盖提供公开检查点。</td>
+</tr>
+<tr>
+<td>BeyondMimic</td>
+<td>提供跟踪任务、奖励和 PD 控制设定的基础。SuperMimic 增加未来参考帧，调整奖励和终止条件，并改用模型中的 BPTT。</td>
+</tr>
+<tr>
+<td>SuperTrack / SHAC</td>
+<td>SuperTrack 用可微代理动力学优化跟踪，SHAC 用可微仿真与 critic 做短时域更新。SuperMimic 将两种思路结合到共享世界模型的训练循环。</td>
+</tr>
+<tr>
+<td><a href="../2026-urbanvla/">UrbanVLA</a></td>
+<td>UrbanVLA 输出局部导航轨迹，由局部规划器执行。SuperMimic 跟踪参考动作，输出关节设定值。两者分别对应机器人从任务到轨迹、从参考动作到关节控制的不同层次。</td>
+</tr>
+</tbody>
+</table>
+<p>主题入口：<a href="../../topics/humanoid-whole-body-control/">人形机器人全身控制</a>。</p>
+<h2 id="_12">后续行动</h2>
+<ul>
+<li>[ ] 核查公开代码与检查点，优先按附录 D/F 复核 LAFAN1 的 PPO-Sim 对照和 BONES-SEED 评估口径。</li>
+<li>[ ] 在统一硬件、训练动作和执行接口下比较 PPO-Sim、PPO-WM 和 BPTT，分别记录 GPU 小时、仿真步数和想象步数。</li>
+<li>[ ] 评估不同预测窗口的状态误差、梯度稳定性与推扰恢复，增加留出动作和跨摩擦测试。</li>
+<li>[ ] 在匹配速度命令分布、终止条件和训练种子的设置下复核速度任务，检验放开共享解码器更新的影响。</li>
+</ul>
+<h2 id="_13">来源定位</h2>
+<p>§3、Figure 2 和附录 A–D 对应训练方法与超参数，§4.1–4.3、Figures 3–5 对应成本、吞吐和 critic 消融，附录 E/F 与 Table A.8 给出数据过滤和失败数口径，§4.4–4.5、Figures 6–7 及附录 G 给出实机与速度接口实验。会议和版本信息据论文首页、arXiv v2 和 CoRL 官网核对。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

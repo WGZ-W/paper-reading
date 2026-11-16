@@ -1,0 +1,1031 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="WGZ">
+      
+      
+        <link rel="canonical" href="https://wgz-w.github.io/paper-reading/papers/2026-openfly/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>OpenFly - Paper Reading</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openfly" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Paper Reading" class="md-header__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paper Reading
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenFly
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Paper Reading" class="md-nav__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Paper Reading
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    研究主题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reading-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阅读清单
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../templates/paper-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题与背景
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 多引擎场景与统一接口
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 自动数据生成工具链
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-openfly-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. OpenFly-Agent：保留与地标有关的历史
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 动作和训练设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验与证据
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验与证据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据规模与划分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指标与成功条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openfly_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主结果：同一 OpenFly 基准上的比较
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消融：关键帧选择与压缩共同起作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        真实无人机实验
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的理解与评价
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="我的理解与评价">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最有价值的贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        适用条件与局限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与其他论文的联系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后续行动
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        来源定位
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="openfly">OpenFly</h1>
+<blockquote>
+<p>完整英文标题：OpenFly: A Comprehensive Platform for Aerial Vision-Language Navigation</p>
+<p>作者：Yunpeng Gao、Chenhui Li、Zhongrui You、Junli Liu、Zhen Li 等；前五位为共同第一作者，通讯作者为 Zhigang Wang、Bin Zhao。</p>
+<p>发表年份 / 版本：2026（ICLR 2026；<a href="https://arxiv.org/abs/2502.18041v7">arXiv 页面</a>标注接收信息）。预印本首发于 2025-02-25；本笔记依据提供的 21 页 arXiv:2502.18041v7，修订日期 2026-03-01，目录按 2026 年版本归档。</p>
+<p>原文：<a href="https://arxiv.org/abs/2502.18041v7">arXiv v7</a>。当前 PDF 未列出可核对的官方代码仓库链接，本次未核查代码发布状态或运行实现。</p>
+<p>阅读日期：2026-11-03</p>
+<p>阅读深度：精读（正文、附录与主要图表；未复现）</p>
+<p>主题标签：空中视觉语言导航、自动数据生成、3D Gaussian Splatting、VLA、关键帧记忆、视觉 Token 压缩</p>
+</blockquote>
+<h2 id="_1">一句话总结</h2>
+<p>OpenFly 将多渲染引擎、自动轨迹与指令生成工具链、100K 航线基准以及关键帧导航模型结合起来：先降低空中 VLN 数据采集成本，再用地标相关历史帧和视觉 Token 压缩改进 OpenVLA，在其未见场景测试集上达到 22.6% SR，并提供了小规模真实无人机实验。</p>
+<h2 id="_2">问题与背景</h2>
+<p><a href="../2023-aerialvln/">AerialVLN</a> 已建立城市级空中 VLN，但依赖飞手驾驶和人工指令标注，扩大数据规模的成本较高。单一仿真技术也限制了可用场景资源和视觉风格。</p>
+<p>OpenFly 同时处理两个问题：</p>
+<ol>
+<li><strong>数据怎么规模化生产</strong>：统一不同场景来源的接口，自动寻找无碰撞轨迹，自动生成语言描述。</li>
+<li><strong>模型应该记住哪些画面</strong>：均匀抽帧可能错过关键地标，保留所有历史图像又增加计算并稀释任务信号，因此需要选择和压缩历史观测。</li>
+</ol>
+<p>阅读时应区分 <strong>OpenFly 平台、OpenFly 数据集和 OpenFly-Agent 模型</strong>，三者分别对应采集能力、评测资源和导航算法。</p>
+<h2 id="_3">核心方法</h2>
+<h3 id="1">1. 多引擎场景与统一接口</h3>
+<p>第 3.1 节及附录 A–C 集成四类渲染来源：</p>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>场景资源</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unreal Engine</td>
+<td>8 个城市场景；UE4 与 UE5 采用不同插件接口。</td>
+<td>提供丰富的可交互数字资产。</td>
+</tr>
+<tr>
+<td>GTA V</td>
+<td>1 个洛杉矶风格城市。</td>
+<td>补充城市外观、交通和光照风格。</td>
+</tr>
+<tr>
+<td>Google Earth</td>
+<td>Berkeley、Osaka、Washington D.C.、St. Louis 共 4 个区域。</td>
+<td>补充真实地理区域的高空影像。</td>
+</tr>
+<tr>
+<td>层次化 3D GS</td>
+<td>5 个校园场景，由无人机照片重建。</td>
+<td>将真实场景带入可渲染环境，即 real-to-sim。</td>
+</tr>
+</tbody>
+</table>
+<p>合计 18 个场景。统一接口覆盖智能体移动、点云获取和图像获取；<code>CoorTrans</code> 将不同引擎的位姿与尺度转换为以米为单位的 FLU（前、左、上）坐标约定。</p>
+<p>3D GS 重建的真实场景仍属于渲染环境；只有第 6.4 节的实际飞行才是实机验证，不能混为一谈。</p>
+<h3 id="2">2. 自动数据生成工具链</h3>
+<p>第 3.2 节及附录 D–G 的流程：</p>
+<ol>
+<li><strong>获取点云</strong>：UE、GTA V 通过栅格采样拼接点云；3D GS 可利用 COLMAP 重建时产生的稀疏点云。</li>
+<li><strong>识别地标</strong>：采用 3D 场景理解、点云投影与轮廓提取等方法，结合 VLM 生成语义描述；平台也保留人工标注接口。</li>
+<li><strong>生成航线</strong>：在体素占据图中选地标、起点和终点，以自定义动作空间运行 A*；串接多个子目标可生成复杂路线。Google Earth 的视角获取受限，附录 E 对其使用预采集栅格图像上的路径搜索。</li>
+<li><strong>生成指令</strong>：根据动作转换切分子轨迹，忽略轻微角度调整；将每段动作与末尾三帧输入 VLM（如 GPT-4o），描述动作及地标，再由 LLM 合并子指令。</li>
+<li><strong>过滤和质检</strong>：剔除损坏图片、低于树高的异常轨迹，以及动作数少于 2 或多于 150 的路线；利用 NLTK、句向量相似度合并重复地标描述，并开展人工抽检。</li>
+</ol>
+<p>分段生成的关键是让语言围绕动作变化与地标组织，减少整段视频输入的成本和理解难度。<strong>高度自动化不等于完全无人参与</strong>：真实场景采集、可选人工语义标注和数据质检仍需要人工。</p>
+<h3 id="3-openfly-agent">3. OpenFly-Agent：保留与地标有关的历史</h3>
+<p>模型基于 OpenVLA，使用视觉编码器与 Llama2-7B，输入当前图像、历史观测和指令，输出无人机动作。主要加入两个模块：</p>
+<p><strong>关键帧选择（KS）</strong>：动作方向的明显变化通常出现在关键地标附近，先据此选取附近候选帧；再用三层交叉注意力组成的 grounding 模块预测指令相关地标框，保留地标框面积超过阈值的候选帧。训练时利用工具链提供的框标签监督 grounding，测试时由模型预测。</p>
+<p><strong>视觉 Token 合并（VTM）</strong>：在关键帧集合中，以地标框最大的帧作为参考，计算跨帧 patch Token 的余弦相似度，将相似 Token 平均合并，丢弃比较帧中未合并的 Token；继续用网格池化压缩历史特征。当前帧保持未压缩，以保留最新决策信息。</p>
+<p><img alt="OpenFly-Agent 架构：动作变化与地标定位筛选历史关键帧，再合并视觉 Token，与当前观测和指令共同预测动作。" src="assets/agent-architecture.png" /></p>
+<p>图源：原论文 Figure 4，PDF 第 7 页；图中的 grounding 标签用于训练，测试时使用预测框。</p>
+<p>我的理解：它维护的是一个小型、任务相关的视觉记忆，而非完整地图。压缩不只是减少计算，也改变了历史与当前观测在语言模型上下文中的信息比例。</p>
+<h3 id="4">4. 动作和训练设置</h3>
+<p>第 4.1、6.1 节列出的关键配置：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>设置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>动作类型</td>
+<td>Forward、Turn Left、Turn Right、Move Up、Move Down、Stop，共六类；不同于 AerialVLN 的八类动作。</td>
+</tr>
+<tr>
+<td>前进步长</td>
+<td>数据生成使用 3、6、9 米，以适应不同目标距离。</td>
+</tr>
+<tr>
+<td>视觉输入</td>
+<td>RGB 图像历史与当前帧；全局点云用于数据生成及碰撞检查，不能据此认定它是导航模型的直接输入。</td>
+</tr>
+<tr>
+<td>当前观测</td>
+<td>保留 256 个视觉 Token。</td>
+</tr>
+<tr>
+<td>历史记忆</td>
+<td>FIFO memory bank，容量 K = 2；历史经过强压缩。正文写为压缩至 1 个 Token，逐帧或整体的具体张量口径需核对实现。</td>
+</tr>
+<tr>
+<td>地标阈值</td>
+<td>框面积超过输入图像面积的 0.25 倍。</td>
+</tr>
+<tr>
+<td>训练</td>
+<td>batch size 64，学习率 2e-5；grounding 使用 GIoU loss。</td>
+</tr>
+<tr>
+<td>动作表示</td>
+<td>词表最后 256 个 Token 用作动作表示，不等于存在 256 种动作类型。</td>
+</tr>
+</tbody>
+</table>
+<p>平台还支持连续路点生成、DAgger 数据增强和交互式训练，但论文主实验采用离散动作模型，不能将平台全部能力视为主模型已经使用的设置。</p>
+<h2 id="_4">实验与证据</h2>
+<h3 id="_5">数据规模与划分</h3>
+<p>Table 1 报告 100K 条航线、15.6K 词汇量，平均路线长 <strong>99.1 米</strong>、<strong>35 个动作</strong>、指令长 <strong>59 个词</strong>。相较 AerialVLN 的平均 661.8 米，OpenFly 明确选择了较短的路线，强调更易扩展的短中程指令。</p>
+<p>第 4.2 节报告：</p>
+<ul>
+<li><strong>Train</strong>：主要由 7 个 UE 场景、4 个 3D GS 场景与 Google Earth 数据组成；UE 占约 75.7%，3D GS 近 20%，Google Earth 约 4.46%。</li>
+<li><strong>Test Seen</strong>：从 11 个已见场景采样 1,800 条路线。</li>
+<li><strong>Test Unseen</strong>：从 3 个未见场景采样 1,200 条路线，分别为 UE-smallcity、3D GS-sjtu02 和 GTA V 城市。</li>
+</ul>
+<p>正文与附录 H 对“100K”及训练分布的表述未给出一张完整、无歧义的分割计数表，本笔记不据此自行推导训练集为 97,000 条；复现前应核对发布清单。</p>
+<p>随机抽检 <strong>3,000 条</strong>数据的合格率为 <strong>91%</strong>；测试数据均经过人工检查并剔除低质量样本。91% 是特定抽检标准下的结果，不代表所有指令都无幻觉。附录 H 的语言现象分析另外只抽样 25 条，不应与 3,000 条质检样本混淆。</p>
+<h3 id="_6">指标与成功条件</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>含义</th>
+<th>方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NE</td>
+<td>最终停止位置到目标的平均距离，单位为米。</td>
+<td>越低越好</td>
+</tr>
+<tr>
+<td>SR</td>
+<td>停在目标 20 米范围内的任务比例；发生碰撞则判失败。</td>
+<td>越高越好</td>
+</tr>
+<tr>
+<td>OSR</td>
+<td>轨迹上曾有位置进入目标 20 米范围内的比例。</td>
+<td>越高越好</td>
+</tr>
+<tr>
+<td>SPL</td>
+<td>成功率按参考路线与实际执行路线长度的比例加权。</td>
+<td>越高越好</td>
+</tr>
+</tbody>
+</table>
+<p>OpenFly 使用 SPL，AerialVLN 原论文主要使用 SDTW；二者分别关注长度效率和参考路线相似性，不能视为同一指标。</p>
+<h3 id="openfly_1">主结果：同一 OpenFly 基准上的比较</h3>
+<p>下表摘自 Table 2。所有百分数均按原表显示，NE 单位为米；这里的 <strong>AerialVLN 是在 OpenFly 数据上评估的方法行，不是 AerialVLN 数据集的原论文成绩</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>Seen SR（%）</th>
+<th>Unseen NE（米）</th>
+<th>Unseen SR（%）</th>
+<th>Unseen OSR（%）</th>
+<th>Unseen SPL（%）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seq2Seq</td>
+<td>2.9</td>
+<td>229</td>
+<td>2.1</td>
+<td>20.6</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>CMA</td>
+<td>5.4</td>
+<td>217</td>
+<td>4.6</td>
+<td>24.4</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td>AerialVLN</td>
+<td>7.5</td>
+<td>214</td>
+<td>7.3</td>
+<td>28.1</td>
+<td>4.4</td>
+</tr>
+<tr>
+<td>Navid</td>
+<td>13.0</td>
+<td>210</td>
+<td>10.8</td>
+<td>27.2</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>NaVila</td>
+<td>20.3</td>
+<td>202</td>
+<td>14.7</td>
+<td>42.1</td>
+<td>9.6</td>
+</tr>
+<tr>
+<td>OpenFly-Agent</td>
+<td><strong>34.3</strong></td>
+<td><strong>154</strong></td>
+<td><strong>22.6</strong></td>
+<td><strong>56.2</strong></td>
+<td><strong>19.1</strong></td>
+</tr>
+</tbody>
+</table>
+<p>相对 NaVila，OpenFly-Agent 的 Seen SR 提升 <strong>14.0 个百分点</strong>，Unseen SR 提升 <strong>7.9 个百分点</strong>。其自身从已见到未见环境下降 11.7 个百分点，仍存在明显泛化差距；Unseen OSR 与 SR 相差 33.6 个百分点，提示接近目标后正确停止及保持成功仍是问题。</p>
+<p>Table 2 还列出零样本 See-Point-Fly：Unseen SR 8.2%、OSR 12.7%、SPL 6.3%，由 GPT-4.1 驱动。虽然表注写“所有模型重训”，正文明确它是 zero-shot 方法，不能将该表注机械套用于所有方法。</p>
+<h3 id="_7">消融：关键帧选择与压缩共同起作用</h3>
+<p>Table 3，<strong>Test Seen</strong>；History 指均匀历史抽帧，Random KS 指从候选关键帧集合随机选帧。</p>
+<table>
+<thead>
+<tr>
+<th>设置</th>
+<th>NE（米）</th>
+<th>SR（%）</th>
+<th>OSR（%）</th>
+<th>SPL（%）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenVLA，仅当前帧</td>
+<td>231</td>
+<td>2.3</td>
+<td>10.8</td>
+<td>2.2</td>
+</tr>
+<tr>
+<td>History</td>
+<td>223</td>
+<td>6.9</td>
+<td>23.3</td>
+<td>5.6</td>
+</tr>
+<tr>
+<td>Random KS</td>
+<td>264</td>
+<td>8.7</td>
+<td>26.6</td>
+<td>5.8</td>
+</tr>
+<tr>
+<td>KS</td>
+<td>275</td>
+<td>9.2</td>
+<td>28.1</td>
+<td>6.1</td>
+</tr>
+<tr>
+<td>History + VTM</td>
+<td>215</td>
+<td>16.6</td>
+<td>40.5</td>
+<td>9.1</td>
+</tr>
+<tr>
+<td>KS + VTM</td>
+<td><strong>93</strong></td>
+<td><strong>34.3</strong></td>
+<td><strong>64.3</strong></td>
+<td><strong>24.9</strong></td>
+</tr>
+</tbody>
+</table>
+<p>在相同 VTM 条件下，KS 相比均匀历史采样将 SR 从 16.6% 提到 34.3%；在 KS 条件下，加入 VTM 将 SR 从 9.2% 提到 34.3%。说明选择重要历史与压缩冗余信息需要结合，不能仅将收益归于“多看了几帧”。但 KS 单独使用时 NE 比 History 更高，改进并非所有指标一致。</p>
+<p>作者将 VTM 的作用解释为缓解图像 Token 过多导致的跨模态注意力稀释，并在附录 I、Figure 13 展示注意力图。该解释有定性支持，但论文未给出完整的端到端延迟、显存和机载算力对照，不能把 Token 减少直接换算成部署速度。</p>
+<h3 id="_8">真实无人机实验</h3>
+<p>第 6.4 节与 Figure 5 使用 <strong>23 个真实室外场景，每场景一个未见任务</strong>，路线长度 50–500 米。无人机为 Q250，机载 Jetson Xavier NX；<strong>导航模型在外部 PC 上推理</strong>，通过通信传递图像和动作，局部规划使用 Super，轨迹跟踪使用 MPC。</p>
+<table>
+<thead>
+<tr>
+<th>方法 / 训练数据</th>
+<th>实机 SR（%）</th>
+<th>实机 OSR（%）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Navid</td>
+<td>图示约 13.0</td>
+<td>17.39</td>
+</tr>
+<tr>
+<td>NaVila</td>
+<td>图示约 13.0</td>
+<td>21.74</td>
+</tr>
+<tr>
+<td>OpenFly-Agent / OpenFly 数据</td>
+<td><strong>26.09</strong></td>
+<td><strong>34.78</strong></td>
+</tr>
+<tr>
+<td>OpenFly-Agent / AerialVLN 数据</td>
+<td>图示约 4.30</td>
+<td>13.04</td>
+</tr>
+</tbody>
+</table>
+<p>23 个任务中 26.09% 约对应 6 次成功。结果支持该模型与数据在这些任务上有迁移潜力，但样本量小，也未严格隔离数据规模、场景风格和路线长度等因素，不能单独证明 3D GS 已解决 sim-to-real。外部 PC 推理也不能解释为 7B 模型已在 Jetson 上实时运行。</p>
+<h2 id="_9">我的理解与评价</h2>
+<h3 id="_10">最有价值的贡献</h3>
+<ol>
+<li><strong>可持续扩展的数据流程</strong>：将点云、地标、路径和语言关联起来，比单次发布一个固定数据集更有长期价值。</li>
+<li><strong>任务相关记忆</strong>：用动作变化和地标定位筛选历史，避免将均匀抽帧当作默认最优方案。</li>
+<li><strong>数据与模型闭环</strong>：采集工具提供地标框监督，模型再利用地标选择关键帧；数据工程和模型设计互相支持。</li>
+</ol>
+<h3 id="_11">适用条件与局限</h3>
+<ul>
+<li><strong>数据多样性不均衡</strong>：训练样本主要来自 UE，Google Earth 只采高空视角，跨引擎结果可能同时反映训练分布与视角差异。</li>
+<li><strong>自动语言的分布偏差</strong>：同一类 VLM、模板和后处理可能造成措辞偏好；91% 抽检合格率不足以证明没有语义偏差或歧义。</li>
+<li><strong>场景划分与源资产关系</strong>：未见场景不必然等于所有资产、建筑风格都未见；应进一步核查地理与资产重叠。</li>
+<li><strong>任务难度不可跨基准直接比较</strong>：OpenFly 路线明显短于 AerialVLN，动作集合和评估指标也不同；更高 SR 不意味着已解决原基准的长程难题。</li>
+<li><strong>压缩的代价</strong>：保留大地标有利于当前任务，但细小目标、被遮挡地标及长时间之前的信息可能被丢弃；K = 2 的适用范围还需系统分析。</li>
+<li><strong>实机验证范围有限</strong>：只有 23 个任务、依赖外部推理与独立规划控制栈，尚不足以证明长期自主飞行、低延迟或复杂动态环境下的可靠性。</li>
+<li><strong>统计与复现</strong>：当前 PDF 未报告多随机种子方差或置信区间；grounding 框、历史 Token 维度、动作幅度与运行效率需结合代码核对。</li>
+</ul>
+<p>我的判断：OpenFly 的重点是把空中 VLN 从人工采集的基准推进到可扩展的数据平台，并展示关键帧记忆的价值。数据规模、自动指令质量和计算效率需要分别验证，不能只用一个最终成功率替代三者的证据。</p>
+<h2 id="_12">与其他论文的联系</h2>
+<table>
+<thead>
+<tr>
+<th>工作</th>
+<th>联系与区别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../2023-aerialvln/">AerialVLN</a></td>
+<td>前者建立长程城市空中 VLN 基准并用 LAG 改进监督；OpenFly 强调自动化、多引擎和较短路线，模型转向 VLA 与关键帧记忆。两篇都有利用动作与地标关系的思路，但 LAG 是训练动作监督，KS 是历史观测筛选。</td>
+</tr>
+<tr>
+<td>OpenVLA</td>
+<td>提供预训练视觉语言动作模型初始化；OpenFly-Agent 将单帧输入扩展为经过筛选和压缩的历史视觉输入。</td>
+</tr>
+<tr>
+<td>Navid / NaVila</td>
+<td>作为 VLM 导航对照；Table 2 的结果是在 OpenFly 基准上的比较，不是各自原始任务成绩。</td>
+</tr>
+<tr>
+<td>LLaMA-VID</td>
+<td>网格池化压缩视觉 Token 的相关来源；OpenFly 将其用于空中导航历史压缩。</td>
+</tr>
+</tbody>
+</table>
+<p>除 AerialVLN 外，表中相关工作目前仅依据本文引入，尚未在本项目独立精读。主题入口：<a href="../../topics/aerial-vision-language-navigation/">空中视觉语言导航</a>。</p>
+<h2 id="_13">后续行动</h2>
+<ul>
+<li>[ ] 核对实际发布的数据清单、训练条数、划分、资产与地理重叠。</li>
+<li>[ ] 查验 KS 的在线候选帧选择、grounding 训练标签和预测误差传播。</li>
+<li>[ ] 核对历史压缩至 1 Token 的张量口径、FIFO 更新及当前帧保留方式。</li>
+<li>[ ] 在相同数据量、模型和训练预算下，复现 History、KS、VTM 的组合消融，并报告多种子结果。</li>
+<li>[ ] 分别测量推理延迟、显存、通信与局部规划开销，判断实际部署瓶颈。</li>
+<li>[ ] 对比更长路线、细小地标和不同指令来源，检验自动数据与短历史记忆的适用边界。</li>
+</ul>
+<h2 id="_14">来源定位</h2>
+<p>主要内容来自提供的 arXiv v7 PDF：第 3 节及附录 A–G 为平台与数据流程；第 4 节、Table 1、附录 H 为数据统计；第 5、6.1 节与 Figure 4 为模型和训练；Table 2、Table 3 与 Figure 5 为主结果、消融和实机实验；附录 I 为定性结果。首发日期、修订日期与 ICLR 2026 接收信息另据 <a href="https://arxiv.org/abs/2502.18041v7">arXiv 版本页面</a>核对。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

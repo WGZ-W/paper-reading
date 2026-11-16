@@ -1,0 +1,727 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="WGZ">
+      
+      
+        <link rel="canonical" href="https://wgz-w.github.io/paper-reading/papers/2024-openvla/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>OpenVLA - Paper Reading</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openvla" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Paper Reading" class="md-header__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paper Reading
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenVLA
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Paper Reading" class="md-nav__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Paper Reading
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    研究主题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reading-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阅读清单
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../templates/paper-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题与背景
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从单帧图像和指令生成 7 维动作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练数据与配方
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验与证据
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验与证据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        直接部署：29 项跨机器人操作任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#franka-libero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新环境适配：Franka 实机和 LIBERO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LoRA 与量化的证据边界
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的理解与评价
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与其他论文的联系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后续行动
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        来源定位
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="openvla">OpenVLA</h1>
+<blockquote>
+<p>完整英文标题：OpenVLA: An Open-Source Vision-Language-Action Model</p>
+<p>作者（所读版本）：Moo Jin Kim、Karl Pertsch、Siddharth Karamcheti（同等贡献）、Ted Xiao、Ashwin Balakrishna、Suraj Nair、Rafael Rafailov、Ethan Foster、Grace Lam、Pannag Sanketi、Quan Vuong、Thomas Kollar、Benjamin Burchfiel、Russ Tedrake、Dorsa Sadigh、Sergey Levine、Percy Liang、Chelsea Finn。</p>
+<p>发表出处与时间：CoRL 2024，2024 年 11 月，德国慕尼黑。PMLR 第 270 卷于 2025 年刊载。目录按会议年份归档，笔记中的方法和数字以提供的 37 页 arXiv:2406.09246v3（2024-09-05）为准。</p>
+<p>原文与代码：<a href="https://arxiv.org/abs/2406.09246v3">arXiv v3</a> · <a href="https://proceedings.mlr.press/v270/kim25c.html">会议论文集</a> · <a href="https://openvla.github.io/">项目主页</a> · <a href="https://github.com/openvla/openvla">官方实现</a></p>
+<p>阅读日期：2026-11-15</p>
+<p>阅读深度：精读（正文、主要图表和实验附录，未复现）</p>
+<p>主题标签：机器人操作、视觉语言动作模型、动作离散化、Open X-Embodiment、LoRA、量化</p>
+</blockquote>
+<h2 id="_1">一句话总结</h2>
+<p>OpenVLA 用约 97 万条实机轨迹把 Prismatic 视觉语言模型微调成操作策略，将 7 维末端执行器动作表示为可自回归生成的 Token。作者报告其在 WidowX 和 Google Robot 的 29 项任务上比 RT-2-X 高 16.5 个成功率百分点，并验证了小样本适配、LoRA 和量化部署。</p>
+<h2 id="_2">问题与背景</h2>
+<p>单任务策略常能容忍初始姿态变化，遇到新物体、干扰物或新指令时却容易操作错对象。VLM 从网络数据获得的语义先验可以帮助选择对象，机器人示范则提供场景和语言对应的控制动作。论文关注如何用开放的模型、训练代码和机器人数据把这两类能力连起来，以及如何用少量目标域示范适配新的操作环境。</p>
+<h2 id="_3">核心方法</h2>
+<h3 id="7">从单帧图像和指令生成 7 维动作</h3>
+<p><img alt="OpenVLA 将视觉特征和指令送入 Llama 2，并把输出的动作 Token 转回机器人动作" src="assets/architecture.png" /></p>
+<p>图源为原论文 Figure 2（PDF 第 4 页）。</p>
+<ol>
+<li><strong>视觉编码</strong>：输入一张第三人称 RGB 图像，默认分辨率 224 × 224。DINOv2 和 SigLIP 分别编码同一图像，按通道拼接对应 patch 的特征。作者用前者补充空间细节，用后者提供视觉语义。</li>
+<li><strong>多模态融合</strong>：两层 MLP 将视觉 patch 特征投影到语言嵌入空间，与指令 Token 一同输入 Llama 2 7B。初始化采用已做图文对齐的 Prismatic-7B。</li>
+<li><strong>动作离散化</strong>：位置增量 3 维、旋转增量 3 维、夹爪控制 1 维。每维用训练数据第 1 至第 99 百分位确定区间，均匀划分 256 档。离群值对常见动作分辨率的影响因此减小，解码时需要使用对应数据集的动作统计还原尺度。</li>
+<li><strong>训练和执行</strong>：借用 Llama 词表最后 256 个 Token 表示这些档位，按动作维度生成序列，交叉熵只监督动作 Token。运行时将 Token 解为一条 7 维命令，执行后读取新图像并再次预测，形成闭环。</li>
+</ol>
+<p>这里的 256 是<strong>每一维</strong>的离散档数，单步输出由各维组合而成。动作坐标系、尺度和夹爪编码都影响同一 Token 最终执行的物理动作。</p>
+<h3 id="_4">训练数据与配方</h3>
+<p>从 Open X-Embodiment 筛出有至少一个第三人称相机、且能用单臂末端执行器控制表示的操作数据，组成约 97 万条实机轨迹的训练配方。采样权重沿用 Octo 的多样性启发式。DROID 初期以约 10% 混入，由于训练中动作 Token 准确率持续较低，最后三分之一训练将其移除。BridgeData V2 还清理了全零动作，附录 C 记录了未经清理的策略容易停在原地。</p>
+<p>主模型全量微调，包括视觉编码器，固定学习率 2e-5，批大小 2048，共 27 个 epoch。论文报告用 64 张 A100 训练 14 天，约 21,500 A100 GPU 小时。较小的 Bridge 实验中，384 × 384 输入训练时间约为 224 × 224 的 3 倍，所测任务未观察到性能收益；附录 D 对数据混合、双视觉编码器及冻结视觉编码器分别做了对照。</p>
+<h2 id="_5">实验与证据</h2>
+<h3 id="29">直接部署：29 项跨机器人操作任务</h3>
+<p>WidowX 的 BridgeData V2 设置包含 17 项任务、每项 10 次。Google Robot 包含 12 项任务、每项 5 次。同一比较中的方法使用相同的任务和机器人、物体初始状态。论文报告相对 55B RT-2-X 的汇总成功率优势为 <strong>16.5 个百分点</strong>，主要来自 BridgeData V2。Google Robot 两者整体接近，Figure 4 所示分布外子集均为 82.9%。Bridge 的语义泛化类别中，RT-2-X 表现更好。</p>
+<p>OpenVLA 的 97 万条训练轨迹、RT-2-X 的约 35 万条轨迹，以及不同视觉编码器与训练数据清理均可能影响结果。这个实机比较衡量完整策略，附录 D 的小规模对照进一步检查了 OpenX 混合数据与视觉编码器的贡献。</p>
+<h3 id="franka-libero">新环境适配：Franka 实机和 LIBERO</h3>
+<p>Figure 5 在 Franka-Tabletop 与 Franka-DROID 的 7 项任务上使用每任务 10–150 条示范，每方法共 129 次实机 rollout。预训练 OpenVLA 的平均表现最高，尤其擅长按多个指令从干扰物中选中目标对象。原文报告其相对从头训练的 Diffusion Policy 汇总提升 <strong>20.4 个百分点</strong>。Diffusion Policy 在部分单指令任务上仍占优，且完整版本使用本体感知、观测历史和动作分块。论文也提供了输入输出规格与 OpenVLA 对齐的 matched 版本。</p>
+<p>附录 E 在 LIBERO 用 LoRA 微调。每套任务每个种子 500 次试验，共 3 个种子。OpenVLA 在 Spatial / Object / Goal / Long 上分别为 <strong>84.7 / 88.4 / 79.2 / 53.7%</strong>，平均 76.5%，同表 Octo 和 Diffusion Policy 平均为 75.1% 和 72.4%。Object、Goal 的最高分分别来自 Diffusion Policy 和 Octo。复现时需沿用附录描述的图像方向与训练示范过滤。</p>
+<h3 id="lora">LoRA 与量化的证据边界</h3>
+<p>§5.3–5.4 的脚注说明，两节使用<strong>仅含 SigLIP 的简化版本</strong>，其机器人训练数据混合与 Octo 相同。以下数字属于该实验设置。</p>
+<table>
+<thead>
+<tr>
+<th>微调方式（Table 1）</th>
+<th>成功率 ± 标准误</th>
+<th>可训练参数</th>
+<th>显存（batch 16）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全量</td>
+<td>69.7 ± 7.2%</td>
+<td>7,188.1M</td>
+<td>163.3 GB（两卡 FSDP）</td>
+</tr>
+<tr>
+<td>冻结视觉编码器</td>
+<td>47.0 ± 6.9%</td>
+<td>6,760.4M</td>
+<td>156.2 GB（两卡 FSDP）</td>
+</tr>
+<tr>
+<td>Sandwich</td>
+<td>62.1 ± 7.9%</td>
+<td>914.2M</td>
+<td>64.0 GB</td>
+</tr>
+<tr>
+<td>LoRA，rank 32</td>
+<td>68.2 ± 7.5%</td>
+<td>97.6M</td>
+<td>59.7 GB</td>
+</tr>
+<tr>
+<td>LoRA，rank 64</td>
+<td>68.2 ± 7.8%</td>
+<td>195.2M</td>
+<td>60.5 GB</td>
+</tr>
+</tbody>
+</table>
+<p>每种方法在选定的 Franka-Tabletop 任务上评估 33 次。LoRA 应用于全部线性层，rank 32 更新约 1.4% 的参数，观测成功率接近全量微调。论文报告单张 A100 上新任务可在 10–15 小时内微调，表中显存随批大小等设置变化。</p>
+<table>
+<thead>
+<tr>
+<th>推理精度（Table 2）</th>
+<th>Bridge 成功率 ± 标准误</th>
+<th>显存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bfloat16</td>
+<td>71.3 ± 4.8%</td>
+<td>16.8 GB</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>58.1 ± 5.1%</td>
+<td>10.2 GB</td>
+</tr>
+<tr>
+<td>int4</td>
+<td>71.9 ± 4.7%</td>
+<td>7.0 GB</td>
+</tr>
+</tbody>
+</table>
+<p>量化比较覆盖 8 项任务、每个精度 80 次 rollout。A5000 上 int8 约 1.2 Hz，int4 约 3 Hz，而采集数据的非阻塞控制频率为 5 Hz。作者将 int8 的成功率下降主要归因于闭环频率变化。附录 D.4 改用阻塞控制后，各精度表现的误差条重叠。部署时应同时报告显存、实际控制频率和闭环成功率。</p>
+<h2 id="_6">我的理解与评价</h2>
+<p>OpenVLA 最有用的贡献是提供了可复用的训练与适配基线。动作 Token 让模型能够沿用 VLM 的训练目标和基础设施，也把控制误差与离散区间、反归一化和硬件时序联系起来。检查预训练数据中看似无害的空动作，以及推理时能否保持与示范接近的节拍，可能比单看离线 Token 准确率更能解释实机失败。</p>
+<p>对照实验支持跨数据集预训练和语义条件在多对象任务上的价值。原版策略每轮只接收一帧图像并预测一个动作，论文报告 RTX 4090 上约 6 Hz。遮挡后恢复、需要长历史的任务、高频灵巧操作和双臂协同仍需要其他输入或动作机制。已测任务上的成功率也随平台和任务类别变化。</p>
+<h2 id="_7">与其他论文的联系</h2>
+<table>
+<thead>
+<tr>
+<th>工作</th>
+<th>可比较的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RT-2 / RT-2-X</td>
+<td>OpenVLA 沿用将动作作为语言模型输出 Token 的方法，改用分位数定标、Prismatic 和自己的 OpenX 数据配方。</td>
+</tr>
+<tr>
+<td>Octo / Diffusion Policy</td>
+<td>Octo 的数据配方是 OpenVLA 的起点之一。两者与 Diffusion Policy 的比较揭示了通用预训练、语言定位和动作平滑性各自的作用。</td>
+</tr>
+<tr>
+<td><a href="../2026-openfly/">OpenFly</a></td>
+<td>在 OpenVLA 基础上适配无人机动作，并加入关键帧选择与 Token 合并。可对照单帧操作和长程导航如何使用视觉历史。</td>
+</tr>
+<tr>
+<td><a href="../2026-streamvln/">StreamVLN</a> · <a href="../2026-urbanvla/">UrbanVLA</a></td>
+<td>StreamVLN 用多轮缓存生成导航动作。UrbanVLA 用动作头输出局部连续轨迹。它们分别提供了处理观察历史和替代离散动作解码的参照。</td>
+</tr>
+</tbody>
+</table>
+<p>主题入口：<a href="../../topics/vision-language-action/">视觉语言动作模型与机器人操作</a>。</p>
+<h2 id="_8">后续行动</h2>
+<ul>
+<li>[ ] 核对官方实现的动作边界处理、反归一化参数及机器人动作接口。</li>
+<li>[ ] 复核 LIBERO 的示范过滤与 LoRA 配方，将各任务套件的差异和总平均同时记录。</li>
+<li>[ ] 在同一机器人与控制频率下对比离散自回归、连续动作头和动作分块的成功率及延迟。</li>
+</ul>
+<h2 id="_9">来源定位</h2>
+<p>Figure 2 与 §3 描述架构、动作编码和数据。Figures 3–5、附录 B/C 对应实机比较。Tables 1–2 和附录 D.4 对应 LoRA、量化与阻塞控制，附录 E 的 Table 12 对应 LIBERO。会议和论文集年份据 PMLR 与会议版本记录。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

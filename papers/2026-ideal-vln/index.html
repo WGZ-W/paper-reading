@@ -1,0 +1,763 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="WGZ">
+      
+      
+        <link rel="canonical" href="https://wgz-w.github.io/paper-reading/papers/2026-ideal-vln/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>IDEAL-VLN - Paper Reading</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ideal-vln" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Paper Reading" class="md-header__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paper Reading
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IDEAL-VLN
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Paper Reading" class="md-nav__button md-logo" aria-label="Paper Reading" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Paper Reading
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    研究主题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reading-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阅读清单
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../templates/paper-note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题与背景
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        先确定当前子指令，再生成动作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何时重新判断当前子指令
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        同时纠正错误子指令与偏航
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验与证据
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验与证据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#r2r-ce-rxr-ce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R2R-CE 与 RxR-CE 未见验证集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分层与纠偏消融
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推理开销与实机
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的理解与评价
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与其他论文的联系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后续行动
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        来源定位
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ideal-vln">IDEAL-VLN</h1>
+<blockquote>
+<p>完整英文标题：Instruction Decomposition and Action Alignment for Vision-and-Language Navigation</p>
+<p>作者：Zihao Xin、Wentong Li、Yixuan Jiang、Bin Wang、Piji Li、Jianke Zhu、Jie Qin、Shengjun Huang。</p>
+<p>发表出处与时间：ICML 2026，2026 年 7 月，韩国首尔。PMLR 第 306 卷，139919–139934 页。以下方法与实验数字以提供的 16 页会议稿为准。</p>
+<p>原文与项目入口：<a href="https://proceedings.mlr.press/v306/xin26a.html">PMLR 论文集</a> · <a href="https://allenxinn.github.io/IDEALVLN">项目主页</a></p>
+<p>阅读日期：2026-11-16</p>
+<p>阅读深度：精读（正文、主要图表和附录，未复现）</p>
+<p>主题标签：VLN-CE、指令分解、语义锚点、自适应重规划、分层纠偏、仿真到现实</p>
+</blockquote>
+<h2 id="_1">一句话总结</h2>
+<p>IDEAL-VLN 先用完整指令和历史图像判断当前应执行哪条子指令，再凭子指令和最近三帧生成动作。它用动作序列中的转向模式判断何时更新子指令，并在仿真训练中分别纠正子指令和轨迹偏离。使用额外训练数据时，纯 RGB 策略在 R2R-CE 和 RxR-CE 未见验证集的成功率分别为 <strong>59.8%</strong> 和 <strong>59.1%</strong>。</p>
+<h2 id="_2">问题与背景</h2>
+<p>长指令经常同时描述过去要经过的地标、眼前该走的门和后续停靠地点。模型每一步都看完整指令时，可能被远处已可见、却还没轮到的地标吸引，提前执行后面的步骤。每步重复编码历史图像也会增加计算。IDEAL-VLN 将长程指令进度交给低频的子指令生成，再让频繁执行的动作模块只处理当前目标。</p>
+<h2 id="_3">核心方法</h2>
+<p><img alt="IDEAL-VLN 先用全局指令与历史产生局部语义锚点，再用当前画面生成动作" src="assets/think-before-act.png" /></p>
+<p>图源为提供的会议稿 Figure 1（PDF 第 3 页）。</p>
+<h3 id="_4">先确定当前子指令，再生成动作</h3>
+<ol>
+<li><strong>语义锚定（Think）</strong>：以全局指令和视觉历史为条件，生成当下的一段子指令，例如“穿过这个房间，进入正对面的门”。附录 C.2 从历史均匀采样 8 帧作为上下文。</li>
+<li><strong>动作对齐（Act）</strong>：共享 Qwen2.5-VL-7B 骨干，只根据当前子指令与最近 3 帧第一人称 RGB 生成一段离散微动作。动作集合包括前进、左转、右转和停止，单次转角为 15°。</li>
+</ol>
+<p>作者把子指令视为全局文本到动作之间的中介。通过输入约束，全局文本只能经子指令影响当步动作。这是模型结构施加的条件依赖关系，评估还需要看子指令是否完整保留了当前决策所需的信息。附录还检查新旧子指令在全局指令中的顺序连贯性，检测到跳步时补齐缺失步骤。</p>
+<h3 id="_5">何时重新判断当前子指令</h3>
+<p>同一锚点可以沿用多个动作块。正文将触发策略称为 action entropy，实际列出的规则直接检查已经生成的动作序列：</p>
+<ul>
+<li>同一块中同时出现左转与右转，视为犹豫或动作冲突。</li>
+<li>同方向的转向动作达到指定次数，视为视野可能已经切换。</li>
+</ul>
+<p>触发条件无需增加视觉模型，也无需另外计算动作概率的熵。触发后会重新运行 Think，因此仍有推理成本。论文在实机系统中把这一步安排在机器人执行上一段动作期间。</p>
+<h3 id="_6">同时纠正错误子指令与偏航</h3>
+<ul>
+<li><strong>语义级思路纠正（STC）</strong>：仿真 rollout 时，按当前所在位置查询专家路径最近的两个路点及其对齐指令，得到专家子指令。用预测文本和专家文本的有效词交集大小除以预测文本的有效词数。低于阈值 τ = 0.8 时，用专家子指令替换错误预测，并把正确标签写入纠偏数据。这个词重合比例计算简单，同义改写或关键词相同而方向不同的情况仍需额外检查。</li>
+<li><strong>空间自适应干预（SAI）</strong>：令 d 为当前位置到最近专家路点的测地距离。用 Logistic 门控决定调用专家的概率：</li>
+</ul>
+<pre><code class="language-text">P(专家干预 | d) = 1 / [1 + exp(-k × (d - μ))]
+k = 3，μ = 1.5 米
+</code></pre>
+<p>靠近路径时模型保留探索机会，偏离较远时更可能由专家介入。d = μ 时干预概率为一半。专家和参考路径只用于训练阶段的数据采集。</p>
+<h3 id="_7">训练数据</h3>
+<p>指令对齐数据集在 Matterport3D 的 61 个室内场景中重采 R2R、RxR 轨迹，得到约 <strong>16 万对图像与子指令</strong>。Qwen3-VL-235B 从完整指令和图像中提取对应片段，RxR 时间戳用于核对顺序，人工筛除跳步和异常输出。</p>
+<p>模型先从仿真专家示范学习基础动作与指令对齐，再进行纠偏微调。完整配方还加入 <strong>ScaleVLN-150K</strong> 和从 LLaVA-Video-178K 抽取的 <strong>8 万</strong>视频问答。ScaleVLN 样本仍用完整指令训练。训练使用 8 张 H100，冻结视觉编码器和多模态投影层。</p>
+<h2 id="_8">实验与证据</h2>
+<h3 id="r2r-ce-rxr-ce">R2R-CE 与 RxR-CE 未见验证集</h3>
+<p>Tables 1–2 摘录。SR 衡量停在目标 3 米内的比例，SPL 按实际路径效率加权，NE 表示终点测地误差，nDTW 衡量与参考路线的对齐。† 表示对应主表标注的额外数据设置。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>R2R SR / SPL</th>
+<th>RxR SR / SPL</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ETPNav</td>
+<td>57.0 / 49.0</td>
+<td>54.7 / 44.8</td>
+<td>全景、深度与里程计</td>
+</tr>
+<tr>
+<td>StreamVLN†</td>
+<td>55.7 / 50.9</td>
+<td>51.8 / 45.0</td>
+<td>RGB，使用本文主表引用的数字</td>
+</tr>
+<tr>
+<td>NavFoM†</td>
+<td>56.2 / 51.2</td>
+<td>57.4 / 49.4</td>
+<td>RGB</td>
+</tr>
+<tr>
+<td>IDEAL-VLN</td>
+<td>56.7 / 51.6</td>
+<td>55.9 / 48.2</td>
+<td>RGB，基础数据设置</td>
+</tr>
+<tr>
+<td>IDEAL-VLN†</td>
+<td><strong>59.8 / 52.9</strong></td>
+<td><strong>59.1 / 50.7</strong></td>
+<td>RGB，含额外训练数据</td>
+</tr>
+</tbody>
+</table>
+<p>完整版本相对基础版本的 SR 分别高 3.1、3.2 个百分点。R2R 的基础版本 SPL 高于 ETPNav，SR 略低。主表引用的 StreamVLN† 数字与其论文 v2 的主表不同，跨论文对照应保留各自版本和训练配方。</p>
+<h3 id="_9">分层与纠偏消融</h3>
+<p>Figure 2 在 RxR-CE 上把完整指令基线的 SR 从 <strong>42.7</strong> 提升到加入 Think-Before-Act（TBA）的 <strong>51.1</strong>，再到加入分层纠偏（HCM）的 <strong>55.9</strong>，最后在添加额外数据后到 <strong>59.1</strong>。这些是逐项叠加，有助于区分算法结构和额外数据的贡献。</p>
+<table>
+<thead>
+<tr>
+<th>RxR 对照</th>
+<th>SR / SPL</th>
+<th>如何解读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TBA + 动作序列触发</td>
+<td>51.1 / 45.9</td>
+<td>Table 3，与阈值规则成本一起比较。</td>
+</tr>
+<tr>
+<td>TBA + SigLIP 相似度触发</td>
+<td>51.5 / 46.0</td>
+<td>成绩接近，论文报告额外约 0.9 GB 显存。</td>
+</tr>
+<tr>
+<td>TBA + LLM 置信度触发</td>
+<td>35.8 / 29.2</td>
+<td>该实现低于完整指令基线 42.7 / 37.8。</td>
+</tr>
+<tr>
+<td>TBA + 普通 DAgger → STC → 完整 HCM</td>
+<td>51.6 / 46.3 → 53.2 / 47.1 → 55.9 / 48.2</td>
+<td>Table 4 的三个纠偏方案。HCM 相对无纠偏 TBA 的 SR 增加 4.8 个百分点。</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 5 用 RxR 未见分割上的关键词重合口径评估子指令对齐。微调后的 Qwen2.5-VL-7B 得分为 78.96%，StreamVLN 为 29.31%，Qwen3-VL-235B 约 80.7%。这项得分衡量局部指令对齐，和闭环导航成功率对应不同任务。</p>
+<h3 id="_10">推理开销与实机</h3>
+<p>Table 6 的单回合比较中，完整指令基线做 21 次动作推理，约 <strong>147K Token、2,310T prefill FLOPs</strong>。IDEAL-VLN 做 5 次 Think 和 21 次 Act，共约 <strong>77K Token、1,180T prefill FLOPs</strong>。动作阶段每次约 2K Token，基线约 7K。该表对应给定轮数的成本，触发更频繁时节省幅度会改变。</p>
+<p>Unitree Go2 使用 RealSense D455 采集 RGB，Jetson Orin 转录语音，远端 RTX 4090 推理。论文报告动作响应回路在 0.2 秒内，子任务推理约 2 秒，可与约 3–5 秒的动作执行重叠。Figure 3 展示未见办公室里的零样本迁移案例，未报告实机任务总数、成功率和延迟分位数。</p>
+<h2 id="_11">我的理解与评价</h2>
+<p>子指令把“当前走到哪一步”变成可检查的输出。这样能直接区分两类失败：选错目标，或目标正确但没走好。TBA 与普通 DAgger 的对照说明，只重标动作难以修复上游指令错误。实际使用时，子指令过早切换、词面相似但方向错误、连续同向转弯引起的误触发，都值得单独统计。</p>
+<p>效率收益还来自动作阶段大幅减少历史视觉输入。若要把它与指令缩短的贡献分开，需要固定视觉帧数比较两种文本条件。实机效率也受动作块执行时长与网络影响，单回合 FLOPs 适合判断计算量，闭环延迟仍需独立测量。</p>
+<h2 id="_12">与其他论文的联系</h2>
+<table>
+<thead>
+<tr>
+<th>工作</th>
+<th>可比较的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../2026-decovln/">DecoVLN</a></td>
+<td>DecoVLN 为动作推理筛选高价值历史，并用硬阈值过滤偏航训练样本。IDEAL-VLN 让历史主要服务子指令预测，用软概率干预，并额外纠正预测子指令。</td>
+</tr>
+<tr>
+<td><a href="../2026-streamvln/">StreamVLN</a></td>
+<td>StreamVLN 用滑动窗口复用 KV、压缩历史视觉 Token。IDEAL-VLN 降低使用完整历史与全局指令的频率，两者针对不同的推理成本。</td>
+</tr>
+<tr>
+<td><a href="../2025-pi05/">π₀.₅</a></td>
+<td>都让高层生成语言子任务再执行。π₀.₅ 用流匹配生成连续操作动作，IDEAL-VLN 用子指令约束离散导航动作，并提供仿真中的两级纠偏。</td>
+</tr>
+</tbody>
+</table>
+<p>主题入口：<a href="../../topics/continuous-vision-language-navigation/">连续环境视觉语言导航</a>。</p>
+<h2 id="_13">后续行动</h2>
+<ul>
+<li>[ ] 核对触发规则的同向转向阈值、子指令连贯性补齐逻辑及停止动作的处理。</li>
+<li>[ ] 固定骨干、数据和视觉帧预算，比较全指令与子指令，分别计量成功率、触发频率与端到端延迟。</li>
+<li>[ ] 按跳步、误转、提前停止和偏航距离分组，复查 STC 与 SAI 的作用。</li>
+</ul>
+<h2 id="_14">来源定位</h2>
+<p>Figure 1、§3.1–3.3 描述两级推理与纠偏。Tables 1–5、Figure 2 对应仿真结果与消融，Table 6、Figures 3–5 对应推理成本、实机和语言对齐评估。附录 C 对应数据标注、训练及部署输入。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -23,6 +23,7 @@
 
 | 日期 | 内容 |
 | --- | --- |
+| 2026-11-16 | 新增 [DecoVLN](papers/2026-decovln/index.md) 精读笔记，整理自适应记忆、纠偏微调和长程导航实验。 |
 | 2026-11-15 | 新增 [π₀.₅](papers/2025-pi05/index.md) 精读笔记，整理异构数据、分层推理与未见家庭实验。 |
 | 2026-11-15 | 新增 [OpenVLA](papers/2024-openvla/index.md) 精读笔记，整理动作 Token、跨机器人预训练、LoRA 与量化评测。 |
 | 2026-11-15 | 新增 [StreamVLN](papers/2026-streamvln/index.md) 精读笔记，整理快慢上下文、体素剪枝、仿真和实机实验。 |

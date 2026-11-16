@@ -5,7 +5,7 @@
 | 主题 | 主要问题 | 已有笔记 |
 | --- | --- | --- |
 | [视觉语言动作模型与机器人操作](vision-language-action.md) | 根据图像和指令生成操作动作，研究新任务适配与未见环境泛化。 | 2 |
-| [连续环境视觉语言导航](continuous-vision-language-navigation.md) | 在连续观测中跟随自然语言指令，平衡动作延迟和长期视觉记忆。 | 1 |
+| [连续环境视觉语言导航](continuous-vision-language-navigation.md) | 在连续观测中跟随自然语言指令，维持长期视觉记忆并纠正偏航。 | 2 |
 | [人形机器人全身控制](humanoid-whole-body-control.md) | 用参考动作与本体感知生成关节动作，扩大动作覆盖并保持接触稳定性。 | 1 |
 | [城市微出行与路线条件导航](urban-micromobility.md) | 将导航软件的粗路线与视觉对齐，生成安全、符合社会规范的局部轨迹。 | 1 |
 | [空中视觉语言导航](aerial-vision-language-navigation.md) | 将语言指令与第一人称视觉对齐，转化为三维城市环境中的无人机动作。 | 2 |

@@ -4,6 +4,7 @@
 
 | 发表年份 | 论文 | 发表出处与时间 | 主题 | 阅读深度 | 阅读日期 |
 | --- | --- | --- | --- | --- | --- |
+| 2026 | [IDEAL-VLN](2026-ideal-vln/index.md) | [ICML 2026](https://proceedings.mlr.press/v306/xin26a.html)，2026 年 7 月 | [连续环境视觉语言导航](../topics/continuous-vision-language-navigation.md) | 精读（未复现） | 2026-11-16 |
 | 2026 | [DecoVLN](2026-decovln/index.md) | [CVPR 2026](https://arxiv.org/abs/2603.13133v3)，2026 年 6 月 | [连续环境视觉语言导航](../topics/continuous-vision-language-navigation.md) | 精读（未复现） | 2026-11-16 |
 | 2026 | [StreamVLN](2026-streamvln/index.md) | [ICRA 2026](https://arxiv.org/abs/2507.05240v2)，2026 年 6 月 | [连续环境视觉语言导航](../topics/continuous-vision-language-navigation.md) | 精读（未复现） | 2026-11-15 |
 | 2026 | [SuperMimic](2026-supermimic/index.md) | [CoRL 2026（口头报告）](https://arxiv.org/abs/2610.28480v2)，2026 年 11 月 | [人形机器人全身控制](../topics/humanoid-whole-body-control.md) | 精读（未复现） | 2026-11-15 |

@@ -9,11 +9,13 @@
 1. 阅读 [StreamVLN](../papers/2026-streamvln/index.md)，理解 VLN-CE 未见环境评估，以及多轮生成和滑动窗口缓存。
 2. 对照只剪历史和同时剪近期观测的结果，检查短期细节与长期记忆各自对路线跟随的贡献。
 3. 阅读 [DecoVLN](../papers/2026-decovln/index.md)，比较指令相关的历史帧筛选，以及如何限制纠偏示范的采集范围。
-4. 与[空中视觉语言导航](aerial-vision-language-navigation.md)和[城市微出行与路线条件导航](urban-micromobility.md)比较视觉历史、监督数据和实机延迟。
+4. 阅读 [IDEAL-VLN](../papers/2026-ideal-vln/index.md)，比较历史如何用于定位指令进度，以及何时应更新子指令。
+5. 与[空中视觉语言导航](aerial-vision-language-navigation.md)和[城市微出行与路线条件导航](urban-micromobility.md)比较视觉历史、监督数据和实机延迟。
 
 | 论文 | 方法 | 评测范围 |
 | --- | --- | --- |
 | [StreamVLN](../papers/2026-streamvln/index.md) | 滑动窗口复用 KV，时间采样与可选体素剪枝压缩旧图像。 | R2R-CE、RxR-CE 未见验证集，Go2 室内定量与室外定性实验。 |
 | [DecoVLN](../papers/2026-decovln/index.md) | 根据语义、视觉与时间挑选历史帧，借助近专家路径的示范训练纠偏。 | R2R-CE、RxR-CE 未见验证集，拼接长路线及 Go2 定性实机。 |
+| [IDEAL-VLN](../papers/2026-ideal-vln/index.md) | 将全局指令转为局部语义锚点，以近期观测生成动作，并在仿真中监督两级纠偏。 | R2R-CE、RxR-CE 未见验证集，子指令对齐、推理开销和 Go2 定性实机。 |
 
 可继续检验定位误差和动态物体对体素剪枝的影响，以及更长任务中的显存峰值、地标回忆与停止行为。
